@@ -15,10 +15,10 @@
   - Edit Name
 - `GET /api/users/:id`
   - Users index/search
-
-### Followings
-- `POST /api/followings`
-- `DELETE /api/followings`
+- `POST /api/users/:id/followings`
+  - Follow user
+- `DELETE /api/users/:id/followings`
+  - Unfollow user
 
 ### Session
 
@@ -34,13 +34,12 @@
 - `PATCH /api/posts/:id`
 - `DELETE /api/posts/:id`
   - TBD: accepts pagination params
+- `POST /api/posts/:id/likes`
+  - Like post by current user
+- `DELETE /api/users/:id/likes`
+  - Unlike post by current user
 
-## Comments
+### Comments
 
 - `POST /api/comments`
 - `DELETE /api/comments/:id`
-
-### Likes
-
-- `POST /api/likes`
-- `DELETE /api/likes/:id`
