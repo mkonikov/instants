@@ -47,7 +47,7 @@
   },
   "errors": {
     "login": ["Password must be 6 characters long"],
-    "upload" ["Invalid image"]
+    "upload-post" ["Invalid image"],
   },
   "session": {
     "user_id": 1

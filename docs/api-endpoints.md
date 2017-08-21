@@ -15,6 +15,8 @@
   - Edit Name
 - `GET /api/users/:id`
   - Users index/search
+- `GET /api/users/:id/following`
+- `GET /api/users/:id/followers`
 - `POST /api/users/:id/followings`
   - Follow user
 - `DELETE /api/users/:id/followings`
