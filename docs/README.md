@@ -54,7 +54,7 @@ Instants is a web app inspired by Instagram built using Ruby on Rails and React/
 
 **Objective** Entering username in search field searches for all users on every keystroke
 
-##Bonus Features:
+### Bonus Features:
 
 * Infinite Scrolling - first 30 posts are loaded, and later photos are fetched as user reaches bottom of page
 * Photo timestamp - Post displays timestamp of when photo was uploaded relative to today's date
