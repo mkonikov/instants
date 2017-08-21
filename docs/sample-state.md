@@ -6,6 +6,7 @@
         "username": "jdoe94",
         "name": "Jon Doe",
         "avatar_url": "assets/profiles/1.jpg",
+        "bio": "I'm awesome!",
         "post_ids": [1, 4, 5],
         "followers_ids": [2,5,6],
         "following_ids": [2,5,7]
@@ -45,7 +46,8 @@
     "model_open": false
   },
   "errors": {
-    "login": ["Password must be 6 characters long"]
+    "login": ["Password must be 6 characters long"],
+    "upload" ["Invalid image"]
   },
   "session": {
     "user_id": 1
