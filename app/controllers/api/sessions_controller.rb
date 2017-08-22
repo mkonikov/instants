@@ -6,11 +6,22 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
 
-    @user ? login(@user) : render :json ["Invalid Credentials"], status: 401
+    if @user
+      login(@user)
+      render "api/users/show"
+    else
+      render :json ["Invalid Credentials"], status: 3
     end
   end
 
   def destroy
-    logout
+    @user = current_user
+    if @user
+      logout
+      render "api/users/show"
+    else
+      render json: ["No user signed in"], status: 404
+    end
+
   end
 end

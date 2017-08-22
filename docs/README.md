@@ -4,7 +4,7 @@
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
-[trello]: https://trello.com/
+[trello]: https://trello.com/b/mLegvxFJ/instants-full-stack
 
 
 ## Minimum Viable Products

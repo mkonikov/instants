@@ -7,12 +7,12 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :show
     else
-      render :json @user.errors.full_messages, status: 422
+      render :json, @user.errors.full_messages, status: 422
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   private

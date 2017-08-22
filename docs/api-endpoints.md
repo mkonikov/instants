@@ -17,9 +17,9 @@
   - Users index/search
 - `GET /api/users/:id/following`
 - `GET /api/users/:id/followers`
-- `POST /api/users/:id/followings`
+- `POST /api/users/:id/follow`
   - Follow user
-- `DELETE /api/users/:id/followings`
+- `DELETE /api/users/:id/follow`
   - Unfollow user
 
 ### Session
@@ -36,12 +36,12 @@
 - `PATCH /api/posts/:id`
 - `DELETE /api/posts/:id`
   - TBD: accepts pagination params
-- `POST /api/posts/:id/likes`
+- `POST /api/posts/:id/like`
   - Like post by current user
-- `DELETE /api/users/:id/likes`
+- `DELETE /api/users/:id/like`
   - Unlike post by current user
 
 ### Comments
 
-- `POST /api/comments`
+- `POST /api/posts/:id/comments`
 - `DELETE /api/comments/:id`

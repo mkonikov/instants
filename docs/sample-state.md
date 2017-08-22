@@ -20,15 +20,8 @@
         "author_id": 1,
         "date_posted": "8/12/2017",
         "comment_ids": [1, 3, 6],
-        "like_ids": [2,4,6],
+        "like_count": [2,4,6],
         "liked": true
-      }
-
-    },
-    "likes": {
-      1: {
-        "post_id": 1,
-        "user_id": 2
       }
 
     },
@@ -43,10 +36,10 @@
   },
   "ui": {
     "loading": false,
-    "model_open": false
   },
   "errors": {
     "login": ["Password must be 6 characters long"],
+    "signup": { username: 'cannot be empty'}
     "upload-post" ["Invalid image"],
   },
   "session": {

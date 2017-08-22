@@ -50,3 +50,4 @@ Visitors are greeted by a login or signup form. Demo account is also an option. 
 | "/log-in"                                 | "AuthFormContainer"    |
 | "/"                                       | "PostsContainer"       |
 | "/users/:userId"                          | "ProfileContainer"     |
+| "/posts/:postId"                          | "PostDetail"
