@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class Signup extends React.Component {
   constructor(props) {
@@ -27,6 +29,15 @@ class Signup extends React.Component {
   }
 
   render() {
+
+    let errors;
+
+    if (this.props.errors) {
+      errors = this.props.errors.map((error, idx) => {
+        return (<div key={idx}>{error}</div>);
+      });
+    }
+
     return(
       <div>
         Signup form
@@ -48,11 +59,12 @@ class Signup extends React.Component {
             placeholder="Password" type="password" />
 
           <input type="submit" value="Sign up" />
+          <div id="auth-errors">{errors}</div>
         </form>
 
 
       <div>
-        Have an account? Log in
+        Have an account? <Link to="/login">Log in</Link>
       </div>
       </div>
     );
@@ -60,3 +72,6 @@ class Signup extends React.Component {
 }
 
 export default Signup;
+
+
+// why is existing username not returning json error?
