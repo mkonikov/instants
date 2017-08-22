@@ -40,7 +40,7 @@ class Signup extends React.Component {
 
     return(
       <div>
-        Signup form
+        Sign up to share your instants with the world!
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleInput("email")}
             value={this.state.email}

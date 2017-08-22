@@ -38,7 +38,6 @@ class Login extends React.Component {
 
     return(
       <div>
-        Signup form
         <form onSubmit={this.handleSubmit}>
 
           <input onChange={this.handleInput("username")}

@@ -3,7 +3,7 @@
 [Heroku link][heroku]
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://instants.herokuapp.com/
 [trello]: https://trello.com/b/mLegvxFJ/instants-full-stack
 
 

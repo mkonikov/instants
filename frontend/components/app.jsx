@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthInterstitial from './session/auth_interstitial';
 import { Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { ProtectedRoute, AuthRoute } from '../util/route_util';
 
 
 const App = () => (
