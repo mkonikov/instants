@@ -10,11 +10,11 @@ const errorsReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case RECEIVE_LOGIN_ERROR:
-      newState = Object.assign({}, state, {login: action.error});
+      newState = Object.assign({}, state, {login: action.payload});
       return newState;
 
     case RECEIVE_SIGNUP_ERROR:
-      newState = Object.assign({}, state, {signup: action.error});
+      newState = Object.assign({}, state, {signup: action.payload});
       return newState;
 
     default:

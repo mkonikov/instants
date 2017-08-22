@@ -38,15 +38,15 @@ export const logout = () => dispatch => {
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,
-  user,
+  payload: user,
 });
 
 export const receiveLoginError = (error) => ({
   type: RECEIVE_LOGIN_ERROR,
-  error,
+  payload: error,
 });
 
 export const receiveSignupError = (error) => ({
   type: RECEIVE_SIGNUP_ERROR,
-  error,
+  payload: error,
 });

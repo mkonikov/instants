@@ -5,9 +5,10 @@ const sessionReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
-    
+
     case RECEIVE_USER:
-      return { user_id: [action.user.id]};
+      if (!action.payload) return { user_id: null };
+      return { user_id: action.payload.id};
 
     default:
       return state;

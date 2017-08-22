@@ -6,6 +6,7 @@ import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
   session,
   entities,
+  errors,
 });
 
 export default rootReducer;

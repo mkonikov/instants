@@ -9,8 +9,9 @@ const usersReducer = (state = {}, action) => {
   switch (action.type) {
 
     case RECEIVE_USER:
-      const newUser = { [action.user.id]: action.user};
-      newState = merge(state, { users: newUser });
+      if (!action.payload) return state;
+      const newUser = { [action.payload.id]: action.payload};
+      newState = merge({}, state, newUser);
       return newState;
 
     default:
@@ -19,4 +20,4 @@ const usersReducer = (state = {}, action) => {
 
 };
 
-export default sessionReducer;
+export default usersReducer;
