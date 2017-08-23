@@ -1,0 +1,30 @@
+nav {
+  background: white;
+  border-bottom: 1px solid $light-gray;
+  padding: 20px 0;
+
+  #nav-container {
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      max-height: 35px;
+    }
+
+
+    #tools {
+      display: flex;
+      justify-content: space-between;
+      height: 30px;
+      width: 140px;
+
+      img {
+        width: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+}

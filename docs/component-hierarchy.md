@@ -49,5 +49,5 @@ Visitors are greeted by a login or signup form. Demo account is also an option. 
 | "/sign-up"                                | "AuthFormContainer"    |
 | "/log-in"                                 | "AuthFormContainer"    |
 | "/"                                       | "PostsContainer"       |
-| "/users/:userId"                          | "ProfileContainer"     |
+| "/users/:username"                        | "ProfileContainer"     |
 | "/posts/:postId"                          | "PostDetail"
