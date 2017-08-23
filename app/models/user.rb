@@ -14,9 +14,13 @@
 #
 
 class User < ApplicationRecord
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :username, :email, :name, :password_digest, :session_token, presence: true
   validates :username, :email, uniqueness: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }
 
   attr_reader :password
 
