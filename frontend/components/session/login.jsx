@@ -38,22 +38,24 @@ class Login extends React.Component {
 
     return(
       <div>
+      <div className="auth-container">
+        <img src={window.images.logo} />
         <form onSubmit={this.handleSubmit}>
 
           <input onChange={this.handleInput("username")}
             value={this.state.username}
-            placeholder="Username" />
+            placeholder="Username" required />
 
           <input onChange={this.handleInput("password")}
             value={this.state.password}
-            placeholder="Password" type="password" />
+            placeholder="Password" type="password" required />
 
           <input type="submit" value="Log in" />
           <div id="auth-errors">{errors}</div>
         </form>
+</div>
 
-
-      <div>
+      <div className="auth-container">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
       </div>

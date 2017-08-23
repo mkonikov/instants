@@ -6,11 +6,8 @@ import { ProtectedRoute, AuthRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <h1>Hi</h1>
-
     <AuthRoute path="/login" component={AuthInterstitial} />
     <AuthRoute path="/signup" component={AuthInterstitial} />
-
   </div>
 
 

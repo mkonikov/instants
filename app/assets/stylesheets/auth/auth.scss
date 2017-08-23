@@ -1,0 +1,133 @@
+$lightest-gray: #fafafa;
+$light-gray: #efefef;
+$dark-gray: #003569;
+$gray: #999999;
+$blue: #3897f0;
+
+
+
+#auth-interstitial {
+  max-width: 950px;
+  margin: auto;
+
+  aside img {
+    height: 620px;
+  }
+
+  .row {
+    display: flex;
+    height: 93vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    height: 7vh;
+
+    a {
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $dark-gray;
+      margin-right: 20px;
+    }
+
+    small {
+      color: $gray;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+.auth-container {
+  background: white;
+  border: 1px solid $light-gray;
+  margin: 0 0 10px;
+  padding: 30px 43px;
+  text-align: center;
+  width: 350px;
+  box-sizing: border-box;
+
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
+
+  a:active {
+    opacity: 0.5;
+  }
+
+  #or {
+    color: $gray;
+    font-weight: 600;
+    background: white;
+    display: inline-block;
+    position: relative;
+    top: 16px;
+    font-size: 13px;
+    padding: 0 18px;
+  }
+
+  #line {
+    height: 1px;
+    margin: 9px 0 21px;
+    background: #c7c7c7;
+  }
+
+  #pitch {
+    font-weight: 600;
+    font-size: 17px;
+    margin: 19px 0;
+    color: $gray;
+  }
+
+  input, button {
+    border: 1px solid $light-gray;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 0 7px 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-top: 6px;
+    font-weight: 300;
+    color: black;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $gray;
+  }
+  ::-moz-placeholder {
+    color: $gray;
+  }
+  :-ms-input-placeholder {
+    color: $gray;
+  }
+  :-moz-placeholder {
+    color: $gray;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: $gray;
+  }
+
+  input[type='submit'], button {
+    background: $blue;
+    color: white;
+    font-weight: 500;
+    border: 0;
+    margin-top: 12px;
+    line-height: 26px;
+    cursor: pointer;
+    padding: 0 8px;
+  }
+}

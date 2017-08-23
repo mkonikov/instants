@@ -40,32 +40,42 @@ class Signup extends React.Component {
 
     return(
       <div>
-        Sign up to share your instants with the world!
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleInput("email")}
-            value={this.state.email}
-            placeholder="Email Address" />
+        <div className="auth-container">
+          <img src={window.images.logo} />
 
-          <input onChange={this.handleInput("name")}
-            value={this.state.fullname}
-            placeholder="Full Name" />
+          <div id="pitch">Sign up to share your instants with the world!</div>
+            <form onSubmit={this.handleSubmit}>
+              <input onChange={this.handleInput("email")}
+                value={this.state.email}
+                placeholder="Email Address" />
 
-          <input onChange={this.handleInput("username")}
-            value={this.state.username}
-            placeholder="Username" />
+              <input onChange={this.handleInput("name")}
+                value={this.state.fullname}
+                placeholder="Full Name" />
 
-          <input onChange={this.handleInput("password")}
-            value={this.state.password}
-            placeholder="Password" type="password" />
+              <input onChange={this.handleInput("username")}
+                value={this.state.username}
+                placeholder="Username" required />
 
-          <input type="submit" value="Sign up" />
-          <div id="auth-errors">{errors}</div>
-        </form>
+              <input onChange={this.handleInput("password")}
+                value={this.state.password}
+                placeholder="Password" type="password" required />
+
+              <input type="submit" value="Sign up" />
+              <div id="auth-errors">{errors}</div>
+            </form>
+            <div id="or">
+              OR
+            </div>
+            <div id="line"></div>
+
+            <button>Explore as Guest</button>
+        </div>
 
 
-      <div>
-        Have an account? <Link to="/login">Log in</Link>
-      </div>
+        <div className="auth-container">
+          Have an account? <Link to="/login">Log in</Link>
+        </div>
       </div>
     );
   }
