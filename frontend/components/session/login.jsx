@@ -15,6 +15,10 @@ class Login extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);

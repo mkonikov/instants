@@ -17,6 +17,11 @@ class Signup extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup(this.state);
@@ -30,12 +35,13 @@ class Signup extends React.Component {
 
   render() {
 
-    let errors;
+    let errorContainer;
 
     if (this.props.errors) {
-      errors = this.props.errors.map((error, idx) => {
+      const errors = this.props.errors.map((error, idx) => {
         return (<div key={idx}>{error}</div>);
       });
+      errorContainer = (<div id="auth-errors">{errors}</div>);
     }
 
     return(
@@ -62,14 +68,15 @@ class Signup extends React.Component {
                 placeholder="Password" type="password" required />
 
               <input type="submit" value="Sign up" />
-              <div id="auth-errors">{errors}</div>
+              {errorContainer}
             </form>
             <div id="or">
               OR
             </div>
             <div id="line"></div>
 
-            <button onClick={this.props.loginGuest}>Explore as Guest</button>
+            <button onClick={this.props.loginGuest}><i className="fa fa-compass" aria-hidden="true"></i>
+    Explore as Guest</button>
         </div>
 
 
@@ -82,6 +89,3 @@ class Signup extends React.Component {
 }
 
 export default Signup;
-
-
-// why is existing username not returning json error?

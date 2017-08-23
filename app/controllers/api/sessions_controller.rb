@@ -9,8 +9,12 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       render "api/users/show"
+    elsif User.find_by(username: params[:user][:username]).nil?
+      render json: ["The username you entered doesn't belong to an
+        account. Please check your username and try again."], status: 401
     else
-      render :json ["Invalid Credentials"], status: 401
+      render json: ["Sorry, your password was incorrect.
+        Please double-check your password."], status: 401
     end
   end
 

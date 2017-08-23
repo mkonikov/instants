@@ -1,29 +1,25 @@
-$lightest-gray: #fafafa;
-$light-gray: #efefef;
-$dark-gray: #003569;
-$gray: #999999;
-$blue: #3897f0;
-
-
-
 #auth-interstitial {
   max-width: 950px;
   margin: auto;
 
+  aside {
+    display: none;
+  }
   aside img {
     height: 620px;
   }
 
   .row {
     display: flex;
-    height: 93vh;
+    min-height: 93vh;
     align-items: center;
     justify-content: center;
   }
 
   footer {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     font-size: 12px;
     height: 7vh;
 
@@ -47,8 +43,6 @@ $blue: #3897f0;
 }
 
 .auth-container {
-  background: white;
-  border: 1px solid $light-gray;
   margin: 0 0 10px;
   padding: 30px 43px;
   text-align: center;
@@ -67,7 +61,7 @@ $blue: #3897f0;
   #or {
     color: $gray;
     font-weight: 600;
-    background: white;
+    background: $lightest-gray;
     display: inline-block;
     position: relative;
     top: 16px;
@@ -129,5 +123,41 @@ $blue: #3897f0;
     line-height: 26px;
     cursor: pointer;
     padding: 0 8px;
+  }
+}
+
+#auth-errors {
+  color: #ed4956;
+  margin-top: 14px;
+
+  div {
+    margin: 5px 0;
+  }
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+@media only screen and (min-width: 450px) {
+  .auth-container {
+    background: white;
+    border: 1px solid $light-gray;
+  }
+  .auth-container #or {
+    background: white;
+  }
+}
+
+
+@media only screen and (min-width: 855px) {
+  #auth-interstitial {
+
+    aside {
+      display: block;
+    }
+    footer {
+      justify-content: space-between;
+    }
   }
 }

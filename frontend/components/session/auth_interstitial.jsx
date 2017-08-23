@@ -18,7 +18,7 @@ const AuthInterstitial = () => (
       <div id="links">
         <a href="http://github.com/mkonikov">GitHub</a>
         <a href="#">Portfolio</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mkonikov/">LinkedIn</a>
       </div>
       <small>
         &copy; Mendel Konikov
