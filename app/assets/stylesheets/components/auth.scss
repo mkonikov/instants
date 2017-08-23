@@ -147,6 +147,68 @@
   }
 }
 
+// TODO: Implement Keyframes Mixin
+// @mixin keyframes( $animationName )
+// {
+//     @-webkit-keyframes $animationName {
+//         @content;
+//     }
+//     @-moz-keyframes $animationName {
+//         @content;
+//     }
+//     @-o-keyframes $animationName {
+//         @content;
+//     }
+//     @keyframes $animationName {
+//         @content;
+//     }
+// }
+//
+// @include keyframes( fade-screenshots )
+// {
+//   0% { opacity: 0; animation-timing-function: ease-in; }
+//   15% { opacity: 1;  }
+//   50% { opacity: 1; animation-timing-function: ease-out; }
+//   75% { opacity: 0 }
+//   100% { opacity: 0 }
+// }
+
+@keyframes fade-screenshots {
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    15% { opacity: 1;  }
+    50% { opacity: 1; animation-timing-function: ease-out; }
+    75% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@-webkit-keyframes fade-screenshots {
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  15% { opacity: 1;  }
+  50% { opacity: 1; animation-timing-function: ease-out; }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@-moz-keyframes fade-screenshots {
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  15% { opacity: 1;  }
+  50% { opacity: 1; animation-timing-function: ease-out; }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@-o-keyframes fade-screenshots {
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  15% { opacity: 1;  }
+  50% { opacity: 1; animation-timing-function: ease-out; }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
+@keyframes fade-screenshots {
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  15% { opacity: 1;  }
+  50% { opacity: 1; animation-timing-function: ease-out; }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
 
 @media only screen and (min-width: 855px) {
   #auth-interstitial {
@@ -166,6 +228,21 @@
           top: 0;
           left: 0;
           width: 100%;
+          opacity: 0;
+          -webkit-animation: fade-screenshots 20s linear infinite 0s;
+          -moz-animation: fade-screenshots 20s linear infinite 0s;
+          -o-animation: fade-screenshots 20s linear infinite 0s;
+          animation: fade-screenshots 20s linear infinite 0s;
+        }
+        img:nth-child(1) {
+          opacity: 1;
+        }
+
+        img:nth-child(2) {
+          -webkit-animation-delay: -10s;
+          -moz-animation-delay: -10s;
+          -o-animation-delay: -10s;
+          animation-delay: -10s;
         }
 
       }

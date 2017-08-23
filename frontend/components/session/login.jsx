@@ -68,7 +68,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-
-// why is existing username not returning json error?
-// why does it clear errors on signout?

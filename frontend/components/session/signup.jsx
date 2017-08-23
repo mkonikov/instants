@@ -53,6 +53,7 @@ class Signup extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <input onChange={this.handleInput("email")}
                 value={this.state.email}
+                type="email"
                 placeholder="Email Address" />
 
               <input onChange={this.handleInput("name")}
