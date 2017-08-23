@@ -175,7 +175,7 @@
 
 @keyframes fade-screenshots {
     0% { opacity: 0; animation-timing-function: ease-in; }
-    15% { opacity: 1;  }
+    5% { opacity: 1;  }
     50% { opacity: 1; animation-timing-function: ease-out; }
     75% { opacity: 0 }
     100% { opacity: 0 }
@@ -183,28 +183,28 @@
 
 @-webkit-keyframes fade-screenshots {
   0% { opacity: 0; animation-timing-function: ease-in; }
-  15% { opacity: 1;  }
+  5% { opacity: 1;  }
   50% { opacity: 1; animation-timing-function: ease-out; }
   75% { opacity: 0 }
   100% { opacity: 0 }
 }
 @-moz-keyframes fade-screenshots {
   0% { opacity: 0; animation-timing-function: ease-in; }
-  15% { opacity: 1;  }
+  5% { opacity: 1;  }
   50% { opacity: 1; animation-timing-function: ease-out; }
   75% { opacity: 0 }
   100% { opacity: 0 }
 }
 @-o-keyframes fade-screenshots {
   0% { opacity: 0; animation-timing-function: ease-in; }
-  15% { opacity: 1;  }
+  5% { opacity: 1;  }
   50% { opacity: 1; animation-timing-function: ease-out; }
   75% { opacity: 0 }
   100% { opacity: 0 }
 }
 @keyframes fade-screenshots {
-  0% { opacity: 0; animation-timing-function: ease-in; }
-  15% { opacity: 1;  }
+  0% { opacity: 0; animation-timing-function: ease-in; z-index: 9; }
+  5% { opacity: 1;  }
   50% { opacity: 1; animation-timing-function: ease-out; }
   75% { opacity: 0 }
   100% { opacity: 0 }
@@ -233,9 +233,6 @@
           -moz-animation: fade-screenshots 20s linear infinite 0s;
           -o-animation: fade-screenshots 20s linear infinite 0s;
           animation: fade-screenshots 20s linear infinite 0s;
-        }
-        img:nth-child(1) {
-          opacity: 1;
         }
 
         img:nth-child(2) {
