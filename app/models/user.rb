@@ -2,15 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  email           :string           not null
-#  bio             :text
-#  name            :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  username            :string           not null
+#  email               :string           not null
+#  bio                 :text
+#  name                :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -21,6 +25,10 @@ class User < ApplicationRecord
   validates :name, :username, :password_digest, :session_token, presence: true
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
+
+  has_attached_file :avatar, default_url: "logo.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
 
   attr_reader :password
 
