@@ -9,7 +9,11 @@ const AuthInterstitial = () => (
   <div id="auth-interstitial">
     <div className="row">
       <aside>
-        <img src="https://www.instagram.com/static/images/homepage/home-phones@2x.png/f82c2ede4ccb.png" />
+          <div id="screenshots">
+            <img src={window.images.app_screenshot_1} />
+            <img src={window.images.app_screenshot_2} />
+          </div>
+        <img src={window.images.app_phone_outline} />
       </aside>
       <Route path="/login" component={LoginContainer} />
       <Route path="/signup" component={SignupContainer} />

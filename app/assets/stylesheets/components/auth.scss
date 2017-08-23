@@ -4,9 +4,7 @@
 
   aside {
     display: none;
-  }
-  aside img {
-    height: 620px;
+    position: relative;
   }
 
   .row {
@@ -153,8 +151,24 @@
 @media only screen and (min-width: 855px) {
   #auth-interstitial {
 
+
     aside {
       display: block;
+
+      #screenshots {
+        position: absolute;
+        width: 253px;
+        top: 104px;
+        left: 159px;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+
+      }
     }
     footer {
       justify-content: space-between;
