@@ -69,7 +69,7 @@ class Signup extends React.Component {
             </div>
             <div id="line"></div>
 
-            <button>Explore as Guest</button>
+            <button onClick={this.props.loginGuest}>Explore as Guest</button>
         </div>
 
 
