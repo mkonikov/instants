@@ -1,4 +1,4 @@
-export const upload = (post) => {
+export const uploadPost = (post) => {
   return $.ajax({
     method: 'post',
     data: post,
