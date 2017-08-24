@@ -9,7 +9,7 @@
 
 User.destroy_all
 
-options = {
+user_options = {
   username: 'guest',
   name: 'Guest',
   email: 'info@example.com',
@@ -18,4 +18,13 @@ options = {
   password_digest: BCrypt::Password.create('password')
 }
 
-User.create(options)
+user1 = User.create(user_options)
+
+Post.destroy_all
+
+post_options = {
+  author_id: user1.id,
+  image: File.open('app/assets/images/brian.jpeg')
+}
+
+Post.create(post_options)

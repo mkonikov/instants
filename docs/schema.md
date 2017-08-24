@@ -7,7 +7,7 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 bio             | text      |
-avatar_url      | attachment|
+avatar          | attachment|
 name            | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
@@ -24,8 +24,8 @@ follower_id     | integer   | not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-description | text      | not null
-image_url   | attachment| not null
+caption     | text      |
+image       | attachment| not null
 author_id   | integer   | not null, foreign key (references users), indexed
 
 ## comments
