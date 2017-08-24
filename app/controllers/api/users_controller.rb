@@ -12,7 +12,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if params[:username]
+      @user = User.find_by(username: params[:username])
+      @posts = @user.posts
+      render :profile
+    end
   end
 
   private

@@ -4,6 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store.js';
 
 import { login, logout } from './actions/session_actions';
+import * as APIUtil from './util/profile_api_util';
+import { fetchCompleteProfile } from './actions/profile_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   window.store = store;
-  window.login = login;
-  window.logout = logout;
+  window.fetchCompleteProfile = fetchCompleteProfile;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

@@ -15,6 +15,12 @@ class UploadModal extends React.Component {
     };
     this.updateImage = this.updateImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  closeModal() {
+    this.setState({caption: "", imageFile: null, imageURL: null,});
+    this.props.toggleUpload();
   }
 
   handleSubmit(e) {
@@ -24,11 +30,11 @@ class UploadModal extends React.Component {
     formData.append("post[image]", this.state.imageFile);
     this.props.uploadPost(formData)
       .then(() => {
-        this.setState({caption: "", imageFile: null, imageURL: null,});
-        this.props.toggleUpload();
+        this.closeModal();
         this.props.history.push(`/${this.props.currentUser}`);
       });
   }
+
 
   handleInput(field) {
     return (e) => {
@@ -52,15 +58,18 @@ class UploadModal extends React.Component {
 
     const displayMode = this.props.uploadOpen ? "active" : "";
     return(
-      <div id="upload_modal" className={displayMode} onClick={this.props.toggleUpload}>
+      <div id="upload_modal"
+        className={displayMode} onClick={this.closeModal}>
         <i className="fa fa-times" aria-hidden="true"></i>
-        <div className="form-container" onClick={(e) => e.stopPropagation()}>
+        <div className="form-container"
+          onClick={(e) => e.stopPropagation()}>
           <form onSubmit={this.handleSubmit}>
             <div id="form-main">
               <h2>New Post</h2>
               <textarea onChange={this.handleInput("caption")}
-                placeholder="Write a caption..."></textarea>
-              <button>Cancel</button>
+                placeholder="Write a caption..."
+                value={this.state.caption}></textarea>
+              <button type="button">Cancel</button>
               <input type="submit" value="Share" />
           </div>
 
@@ -69,7 +78,8 @@ class UploadModal extends React.Component {
             <label htmlFor="upload-image">
               <div>
                 Drag image Here</div>
-              <input id="upload-image" type="file" onChange={this.updateImage} />
+              <input id="upload-image"
+                type="file" onChange={this.updateImage} />
 
             </label>
             </div>

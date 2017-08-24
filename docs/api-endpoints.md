@@ -13,7 +13,7 @@
 - `POST /api/users`
 - `PATCH /api/users`
   - Edit Name
-- `GET /api/users/:id`
+- `GET /api/user/:username`
   - Users index/search
 - `GET /api/users/:id/following`
 - `GET /api/users/:id/followers`
