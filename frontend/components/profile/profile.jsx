@@ -1,12 +1,18 @@
 import React from 'react';
+import ProfileDetailContainer from './profile_detail_container';
 
 class Profile extends React.Component {
+
   componentDidMount() {
-    console.log(this.props);
+    this.props.fetchCompleteProfile(this.props.user);
   }
+
   render() {
     return (
-      <div>User</div>
+      <div>
+        User
+      <ProfileDetailContainer />
+      </div>
     );
 
   }

@@ -1,11 +1,19 @@
 import React from 'react';
 
-const ProfileDetail = (props) => {
+class ProfileDetail extends React.Component {
 
-  return(
-    <div>Details</div>
-  );
-  
-};
+  render() {
+    debugger
+
+    return(
+      <div>Details
+        {this.props.user.username}
+        {this.props.user.name}
+        {this.props.user.bio}
+      </div>
+    );
+  }
+
+}
 
 export default ProfileDetail;

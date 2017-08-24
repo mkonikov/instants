@@ -1,5 +1,13 @@
+profileIds = []
+
+@posts.each do |post|
+  profileIds << post.id
+end
+
+
 json.user do
   json.partial! 'api/users/user', user: @user
+  json.profileFeed profileIds
 end
 
 json.posts do

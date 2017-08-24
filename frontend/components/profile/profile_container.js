@@ -6,8 +6,8 @@ import { fetchCompleteProfile } from '../../actions/profile_actions';
 const mapStateToProps = (state, ownProps) => {
   const username = ownProps.match.params.username;
   return {
-    test: false,
-    // user: selectUserByUsername(username, state),
+    user: username,
+    userDetails: state.entities.users[username],
   };
 
 };
@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const username = ownProps.match.params.username;
     return {
-    fetchCompleteProfile: () => dispatch(fetchCompleteProfile(username)),
+    fetchCompleteProfile: (username) => dispatch(fetchCompleteProfile(username)),
   };
 
 };

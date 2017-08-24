@@ -7,7 +7,7 @@
         "name": "Jon Doe",
         "avatarUrl": "assets/profiles/1.jpg",
         "bio": "I'm awesome!",
-        "postIds": [1, 4, 5],
+        "profileFeed": [1, 4, 5],
         "followerIds": [2,5,6],
         "followingIds": [2,5,7]
       }
