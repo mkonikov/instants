@@ -5,7 +5,7 @@ import { toggleUpload } from '../../actions/ui_actions';
 
 
 const mapStateToProps = (state) => ({
-  currentUser: state.entities.users[state.session.userId].username,
+  currentUser: state.session.currentUser,
 });
 
 

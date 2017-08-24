@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
+    debugger
     if params[:username]
       @user = User.find_by(username: params[:username])
       @posts = @user.posts

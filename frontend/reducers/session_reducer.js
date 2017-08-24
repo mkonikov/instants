@@ -7,8 +7,8 @@ const sessionReducer = (state = {}, action) => {
   switch (action.type) {
 
     case RECEIVE_USER:
-      if (!action.payload) return { userId: null };
-      return { userId: action.payload.id};
+      if (!action.payload) return { currentUser: null };
+      return { currentUser: action.payload.username};
 
     default:
       return state;

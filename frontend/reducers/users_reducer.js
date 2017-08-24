@@ -11,12 +11,12 @@ const usersReducer = (state = {}, action) => {
 
     case RECEIVE_USER:
       if (!action.payload) return state;
-      const newUser = { [action.payload.id]: action.payload};
+      const newUser = { [action.payload.username]: action.payload};
       newState = merge({}, state, newUser);
       return newState;
 
     case RECEIVE_COMPLETE_PROFILE:
-      const additionalUser = { [action.payload.user.id]: action.payload.user };
+      const additionalUser = { [action.payload.user.username]: action.payload.user };
       newState = merge({}, state, additionalUser);
       return newState;
 

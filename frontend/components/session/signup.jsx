@@ -76,7 +76,8 @@ class Signup extends React.Component {
             </div>
             <div id="line"></div>
 
-            <button onClick={this.props.loginGuest}><i className="fa fa-compass" aria-hidden="true"></i>
+            <button onClick={this.props.loginGuest} type="button">
+              <i className="fa fa-compass" aria-hidden="true"></i>
     Explore as Guest</button>
         </div>
 

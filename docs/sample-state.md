@@ -2,7 +2,7 @@
 {
   "entities": {
     "users": {
-      1: {
+      "guest": {
         "username": "jdoe94",
         "name": "Jon Doe",
         "avatarUrl": "assets/profiles/1.jpg",
@@ -38,7 +38,8 @@
   },
   "ui": {
     "loading": false,
-    "uploadModal": false
+    "uploadModal": false,
+    "feed_ord": [1, 3, 6]
   },
   "errors": {
     "login": ["Password must be 6 characters long"],
