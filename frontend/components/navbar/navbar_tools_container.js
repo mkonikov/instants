@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import NavbarTools from './navbar_tools';
 import { logout } from '../../actions/session_actions';
+import { toggleUpload } from '../../actions/ui_actions';
+
 
 const mapStateToProps = (state) => ({
   currentUser: state.entities.users[state.session.userId].username,
@@ -9,6 +11,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
+  toggleUpload: () => dispatch(toggleUpload()),
+
 });
 
 export default connect(
