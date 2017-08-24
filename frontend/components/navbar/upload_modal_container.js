@@ -5,8 +5,10 @@ import { toggleUpload } from '../../actions/ui_actions';
 
 
 
+
 const mapStateToProps = (state) => ({
   uploadOpen: state.ui.uploadModal,
+  currentUser: state.entities.users[state.session.userId].username,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,5 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import { withRouter } from 'react-router-dom';
+
 
 
 class UploadModal extends React.Component {
@@ -21,7 +23,11 @@ class UploadModal extends React.Component {
     formData.append("post[caption]", this.state.caption);
     formData.append("post[image]", this.state.imageFile);
     this.props.uploadPost(formData)
-      .then(this.props.toggleUpload());
+      .then(() => {
+        this.setState({caption: "", imageFile: null, imageURL: null,});
+        this.props.toggleUpload();
+        this.props.history.push(`/${this.props.currentUser}`);
+      });
   }
 
   handleInput(field) {
@@ -75,4 +81,4 @@ class UploadModal extends React.Component {
 
 }
 
-export default UploadModal;
+export default withRouter(UploadModal);
