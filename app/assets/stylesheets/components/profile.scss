@@ -1,0 +1,31 @@
+#profile {
+  #details {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  .avatar {
+    width: 293px;
+    margin-right: 30px;
+  }
+  .username {
+    font-size: 32px;
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+  .bio {
+    font-size: 16px;
+  }
+  .full-name {
+    font-weight: 600;
+    margin-right: 5px;
+  }
+  .posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .posts > div {
+    margin-bottom: 30px;
+  }
+}

@@ -20,8 +20,14 @@
 
 
 body {
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica,
+                Arial, sans-serif;
   box-sizing: border-box;
   background: #fafafa;
   font-size: 14px;
+}
+
+#main-contain {
+  max-width: 950px;
+  margin: 60px auto 0;
 }

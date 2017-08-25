@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileDetailContainer from './profile_detail_container';
+import ProfilePosts from './profile_posts';
 
 class Profile extends React.Component {
 
@@ -9,9 +10,9 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div>
-        User
-      <ProfileDetailContainer />
+      <div id="profile">
+        <ProfileDetailContainer />
+        <ProfilePosts posts={this.props.feed} />
       </div>
     );
 
