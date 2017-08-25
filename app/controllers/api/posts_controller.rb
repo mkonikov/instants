@@ -7,6 +7,7 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     @post.author_id = current_user.id
+    @post_author = current_user
 
     if @post.save
       render :show
@@ -17,7 +18,8 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:author).find(params[:id])
+    @post_author = @post.author
   end
 
   private

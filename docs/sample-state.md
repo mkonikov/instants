@@ -19,6 +19,7 @@
         "thumbUrl": "assets/posts/thumb/435.jpg"
         "description": "What a day!",
         "authorId": 1,
+        "authorName": "jdoe94",
         "datePosted": "8/12/2017",
         "daysAgo": "14 days",
         "commentIds": [1, 3, 6],

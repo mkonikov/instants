@@ -1,6 +1,10 @@
 import React from 'react';
 import ProfileDetailContainer from './profile_detail_container';
 import ProfilePosts from './profile_posts';
+import ProfilePostItemDetailContainer from './profile_post_item_detail_container';
+import { Route } from 'react-router-dom';
+
+
 
 class Profile extends React.Component {
 
@@ -12,12 +16,14 @@ class Profile extends React.Component {
       this.props.fetchCompleteProfile(nextProps.user);
     }
 
-    // TODO: Page should add latest uploaded image after uploading image.
   }
 
   render() {
     return (
       <div id="profile">
+        <Route path="/:username/posts/:postId"
+          component={ProfilePostItemDetailContainer} />
+
         <ProfileDetailContainer />
         <ProfilePosts posts={this.props.feed} />
       </div>

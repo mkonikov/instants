@@ -20,6 +20,7 @@ class UploadModal extends React.Component {
 
   closeModal() {
     this.setState({caption: "", imageFile: null, imageURL: null,});
+    document.body.classList.remove('modal-open');
     this.props.toggleUpload();
   }
 
@@ -69,7 +70,7 @@ class UploadModal extends React.Component {
       </label>);
     }
 
-    const displayMode = this.props.uploadOpen ? "active" : "";
+    const displayMode = this.props.uploadOpen ? "active modal" : "modal";
     return(
       <div id="upload_modal"
         className={displayMode} onClick={this.closeModal}>

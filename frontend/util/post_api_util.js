@@ -7,3 +7,10 @@ export const uploadPost = (post) => {
     processData: false,
   });
 };
+
+export const fetchCompletePost = (postId) => {
+  return $.ajax({
+    method: 'get',
+    url: `/api/posts/${postId}`,
+  });
+};

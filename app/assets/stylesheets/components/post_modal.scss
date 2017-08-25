@@ -1,0 +1,27 @@
+#post-modal {
+  display: flex;
+
+  #post-container {
+    width: 950px;
+    margin: auto;
+    background: white;
+    display: flex;
+    height: 600px;
+    z-index: 50;
+    position: relative;
+
+    .image {
+      width: 600px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    #post-author-details img {
+      width: 40px;
+    }
+  }
+
+
+}

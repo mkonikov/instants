@@ -20,7 +20,8 @@ class Post < ApplicationRecord
   has_attached_file :image, styles: { thumb: "293x293#" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  belongs_to :user,
-    foreign_key: :author_id
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
 
 end

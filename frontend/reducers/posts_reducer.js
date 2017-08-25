@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER_POST } from '../actions/post_actions';
+import { RECEIVE_CURRENT_USER_POST, RECEIVE_COMPLETE_POST } from '../actions/post_actions';
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
 import { merge } from 'lodash';
 
@@ -12,6 +12,13 @@ const postsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER_POST:
       newPost = {[action.payload.id]: action.payload };
       newState = merge({}, state, newPost);
+      return newState;
+
+    case RECEIVE_COMPLETE_POST:
+      newPost = {[action.payload.id]: action.payload };
+      newState = merge({}, state, newPost);
+      // Possible to do: consider merging receive complete
+      // and current user post - only in this reducer!
       return newState;
 
     case RECEIVE_COMPLETE_PROFILE:
