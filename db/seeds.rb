@@ -22,9 +22,11 @@ user1 = User.create(user_options)
 
 Post.destroy_all
 
+
 24.times do |n|
   post_options = {
     author_id: user1.id,
+    caption: Faker::Lorem.sentence,
     image: File.open("app/assets/images/#{n+1}.jpg")
   }
   Post.create(post_options)

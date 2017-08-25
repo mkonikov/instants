@@ -15,9 +15,9 @@
 
 class Post < ApplicationRecord
 
-  validates :user, :image, presence: true
+  validates :author, :image, presence: true
 
-  has_attached_file :image, styles: { thumb: "293x293#" }
+  has_attached_file :image, styles: { thumb: "293x293#", square: "600x600#" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,
