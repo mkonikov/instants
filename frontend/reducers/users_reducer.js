@@ -1,9 +1,12 @@
 import { RECEIVE_USER } from '../actions/session_actions';
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
-import { merge } from 'lodash';
+import { RECEIVE_CURRENT_USER_POST } from '../actions/post_actions';
+
+import { merge, values } from 'lodash';
 
 const usersReducer = (state = {}, action) => {
   let newState;
+  let updatedUser;
 
   Object.freeze(state);
 
@@ -13,6 +16,12 @@ const usersReducer = (state = {}, action) => {
       if (!action.payload) return state;
       const newUser = { [action.payload.username]: action.payload};
       newState = merge({}, state, newUser);
+      return newState;
+
+    case RECEIVE_CURRENT_USER_POST:
+      const currentUser = values(state).filter((user) => user.id === action.payload.authorId)[0];
+      currentUser.profileFeed.unshift(action.payload.id);
+      newState = merge({}, state, currentUser);
       return newState;
 
     case RECEIVE_COMPLETE_PROFILE:

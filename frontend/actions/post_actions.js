@@ -1,13 +1,13 @@
 import * as PostAPIUtil from '../util/post_api_util';
 
-export const RECEIVE_POST = "RECEIVE_POST";
+export const RECEIVE_CURRENT_USER_POST = "RECEIVE_CURRENT_USER_POST";
 export const RECEIVE_UPLOAD_ERROR = "RECEIVE_UPLOAD_ERROR";
 
 export const uploadPost = post => dispatch => {
   return PostAPIUtil.uploadPost(post)
     .then(
       (post) => {
-        dispatch(receivePost(post));
+        dispatch(receiveCurrentUserPost(post));
       },
       (error) => {
         dispatch(receiveUploadError(error.responseJSON));
@@ -16,8 +16,8 @@ export const uploadPost = post => dispatch => {
 };
 
 
-export const receivePost = (post) => ({
-  type: RECEIVE_POST,
+export const receiveCurrentUserPost = (post) => ({
+  type: RECEIVE_CURRENT_USER_POST,
   payload: post,
 });
 

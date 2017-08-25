@@ -11,7 +11,7 @@ const ProfilePosts = (props) => {
         <ProfilePostItem key={post.id} post={post} />
       );
     });
-  } 
+  }
 
   return (
     <div className="posts">

@@ -11,6 +11,8 @@ class Profile extends React.Component {
     if (this.props.user !== nextProps.user) {
       this.props.fetchCompleteProfile(nextProps.user);
     }
+
+    // TODO: Page should add latest uploaded image after uploading image.
   }
 
   render() {
