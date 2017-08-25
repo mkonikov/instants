@@ -56,6 +56,19 @@ class UploadModal extends React.Component {
 
   render() {
 
+    let imageArea;
+
+    if (this.state.imageURL) {
+      imageArea = (<img src={this.state.imageURL} />);
+    } else {
+      imageArea = (<label htmlFor="upload-image">
+        <div className="drop-zone">
+          Click Here to Add image</div>
+        <input id="upload-image"
+          type="file" onChange={this.updateImage} />
+      </label>);
+    }
+
     const displayMode = this.props.uploadOpen ? "active" : "";
     return(
       <div id="upload_modal"
@@ -65,23 +78,21 @@ class UploadModal extends React.Component {
           onClick={(e) => e.stopPropagation()}>
           <form onSubmit={this.handleSubmit}>
             <div id="form-main">
+              <div className="form-inputs">
               <h2>New Post</h2>
               <textarea onChange={this.handleInput("caption")}
                 placeholder="Write a caption..."
                 value={this.state.caption}></textarea>
-              <button type="button">Cancel</button>
+              </div>
+              <div className="form-buttons">
               <input type="submit" value="Share" />
+              <a onClick={this.closeModal}>
+                Cancel</a>
+              </div>
           </div>
 
           <div id="form-image">
-            <img src={this.state.imageURL} />
-            <label htmlFor="upload-image">
-              <div>
-                Drag image Here</div>
-              <input id="upload-image"
-                type="file" onChange={this.updateImage} />
-
-            </label>
+            {imageArea}
             </div>
           </form>
         </div>

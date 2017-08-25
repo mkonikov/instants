@@ -42,3 +42,13 @@ q:before, q:after {
 blockquote, q {
 	quotes: "" "";
 }
+textarea {
+	border: none;
+	overflow: auto;
+	outline: none;
+	resize: none;
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}

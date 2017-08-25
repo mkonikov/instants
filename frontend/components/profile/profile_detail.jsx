@@ -4,17 +4,28 @@ class ProfileDetail extends React.Component {
 
   render() {
 
-    return(
-      <div id="details">
+    let profileDetails;
+
+    if (this.props.user) {
+      profileDetails = (
+        <div id="details">
         <div className="avatar">
-          IMAGE
+          <div><img src={this.props.user.avatarUrl} /></div>
         </div>
         <div>
           <div className="username">{this.props.user.username}</div>
           <div className="bio">
             <span className="full-name">{this.props.user.name}</span>
-          {this.props.user.bio}</div>
+            {this.props.user.bio}</div>
         </div>
+      </div>
+      );
+    }
+
+
+    return(
+      <div>
+        {profileDetails}
       </div>
     );
   }

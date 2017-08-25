@@ -7,6 +7,11 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchCompleteProfile(this.props.user);
   }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.user !== nextProps.user) {
+      this.props.fetchCompleteProfile(nextProps.user);
+    }
+  }
 
   render() {
     return (

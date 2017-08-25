@@ -3,9 +3,31 @@
     display: flex;
     margin-bottom: 50px;
   }
+  .avatar > div {
+    position: relative;
+    display: inline-block;
+  }
+  .avatar > div:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
   .avatar {
     width: 293px;
     margin-right: 30px;
+    text-align: center;
+
+    img {
+      width: 150px;
+      border-radius: 100%;
+    }
+
   }
   .username {
     font-size: 32px;

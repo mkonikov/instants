@@ -26,7 +26,8 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
 
-  has_attached_file :avatar, default_url: "default_avatar.svg"
+  has_attached_file :avatar, default_url: "default_avatar.svg",
+    styles: { thumb: "150x150#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
 
