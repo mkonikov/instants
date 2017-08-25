@@ -13,7 +13,7 @@ class ProfilePostItemDetail extends React.Component {
 
     this.closeModal = this.closeModal.bind(this);
   }
-  
+
   componentDidMount() {
     this.props.fetchCompletePost();
     document.body.classList.add('modal-open');
@@ -38,20 +38,21 @@ class ProfilePostItemDetail extends React.Component {
         <div className="image">
           <img src={this.props.post.imageUrl} />
         </div>
-        <div>
+        <div className="post-details">
           <div id="post-author-details">
+              <div className="avatar">
           <Link to={`/${this.props.author.username}`}>
-            <img src={this.props.author.avatarUrl} /></Link>
+            <img src={this.props.author.avatarUrl} /></Link></div>
 
           <Link to={`/${this.props.author.username}`}>
             {this.props.author.username}</Link>
           </div>
-          <div>
+          <div className="caption">
             <Link to={`/${this.props.author.username}`}>
               {this.props.author.username}</Link>
             {this.props.post.caption}
           </div>
-          <div>
+          <div className="post-date">
             <Moment fromNow>{this.props.post.createdAt}</Moment>
           </div>
         </div>
