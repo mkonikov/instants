@@ -7,21 +7,16 @@
     color: white;
     text-transform: uppercase;
     font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
 
     label {
       padding: 20px;
       display: block;
     }
 
-    img {
-      object-fit: cover;
-      max-height: 100%;
-    }
+
   }
+
+
 
   input[type='submit'] {
     background: #3897f0;
@@ -76,7 +71,7 @@
 
 
 
-  
+
 
   .form-container {
     width: 1000px;
@@ -110,4 +105,24 @@ input[type="file"] {
 .form-container form > div {
   max-width: 500px;
   flex: 1;
+}
+
+.drop-zone {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.drop-default {
+  cursor: pointer;
+}
+
+#form-image > img {
+  object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }

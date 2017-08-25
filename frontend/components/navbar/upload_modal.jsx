@@ -13,7 +13,7 @@ class UploadModal extends React.Component {
       imageFile: null,
       imageURL: null,
     };
-    this.updateImage = this.updateImage.bind(this);
+    this.onDrop = this.onDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
@@ -43,17 +43,10 @@ class UploadModal extends React.Component {
     };
   }
 
-  updateImage(e) {
-    const image = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ imageFile: image, imageURL: fileReader.result, });
-    };
-    if (image) {
-      fileReader.readAsDataURL(image);
-    }
+  onDrop(image) {
+    console.log(image);
+    this.setState({imageFile: image[0], imageURL: image[0].preview});
   }
-
 
   render() {
 
@@ -62,12 +55,14 @@ class UploadModal extends React.Component {
     if (this.state.imageURL) {
       imageArea = (<img src={this.state.imageURL} />);
     } else {
-      imageArea = (<label htmlFor="upload-image">
+      imageArea = (
         <div className="drop-zone">
-          Click Here to Add image</div>
+          <Dropzone className="drop-default" onDrop={this.onDrop}>
+           <p>click to choose your image or drag and drop here</p>
+         </Dropzone>
         <input id="upload-image"
-          type="file" onChange={this.updateImage} />
-      </label>);
+          type="file" onChange={this.updateImage} /></div>
+      );
     }
 
     const displayMode = this.props.uploadOpen ? "active modal" : "modal";

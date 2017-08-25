@@ -48,7 +48,31 @@
     justify-content: space-between;
   }
 
-  .posts > div {
-    margin-bottom: 30px;
+}
+
+.post-item {
+  margin-bottom: 30px;
+  position: relative;
+
+}
+.post-item-hover {
+  display: none;
+}
+.post-item:hover .post-item-hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  right: 0;
+
+  .like-count {
+    margin-right: 20px;
   }
 }
