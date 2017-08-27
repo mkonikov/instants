@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
 
   if (window.currentUser) {
+    const userWithFollows = {
+      followeeUsernames: window.currentUserFollows.followeeUsernames,
+      followerUsernames: window.currentUserFollows.followerUsernames,
+    };
+    const currentUser = Object.assign({}, window.currentUser, userWithFollows);
     const preloadedState = {
-      session: { currentUser: window.currentUser.username },
-      entities: { users: { [window.currentUser.username]: window.currentUser } },
+      session: { currentUser: currentUser.username },
+      entities: { users: { [currentUser.username]: currentUser } },
     };
     store = configureStore(preloadedState);
     delete window.currentUser;

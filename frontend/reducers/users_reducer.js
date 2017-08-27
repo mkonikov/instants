@@ -22,15 +22,18 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_NEW_FOLLOW:
       currentUser = state[action.following.follower];
       currentUser.followeeUsernames.push(action.following.followee);
-      newState = merge({}, state, currentUser);
+      newState = merge({}, state, {[currentUser.username]: currentUser});
+      console.log(newState);
+      debugger;
       return newState;
 
     case REMOVE_FOLLOW:
       currentUser = state[action.following.follower];
       currentUser.followeeUsernames = currentUser.followeeUsernames.filter((username) => {
+        debugger;
         return username !== action.following.followee;
       });
-      newState = merge({}, state, currentUser);
+      newState = merge({}, state, {[currentUser.username]: currentUser});
 
       return state;
 

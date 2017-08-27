@@ -7,8 +7,11 @@ import { followUser, unfollowUser } from '../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const username = ownProps.match.params.username;
+  const currentUser = state.entities.users[state.session.currentUser];
   return {
     user: state.entities.users[username],
+    followStatus: currentUser.followeeUsernames.includes(username),
+    self: Boolean(username === currentUser.username),
   };
 
 };

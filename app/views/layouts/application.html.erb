@@ -11,6 +11,11 @@
           "api/users/user.json.jbuilder",
           user: current_user
         ).html_safe %>
+        window.currentUserFollows = <%= render(
+          "api/users/followings.json.jbuilder",
+          followers: current_user.followers,
+          followees: current_user.followees
+        ).html_safe %>
       <% end %>
       window.images = {
         logo: "<%= image_path('logo.png') %>",

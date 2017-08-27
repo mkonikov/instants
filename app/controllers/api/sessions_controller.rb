@@ -8,6 +8,9 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
+      @followers = @user.followers
+      @followees = @user.followees
+
       render "api/users/show"
     elsif User.find_by(username: params[:user][:username]).nil?
       render json: ["The username you entered doesn't belong to an

@@ -4,7 +4,6 @@ export const RECEIVE_NEW_FOLLOW = "RECEIVE_NEW_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 
 export const followUser = followeeId => dispatch => {
-  debugger
   return FollowAPIUtil.followUser(followeeId)
     .then(
       (following) => {
