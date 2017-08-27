@@ -34,7 +34,6 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-
   has_many :follower_followings,
     foreign_key: :followee_id,
     class_name: :Following,

@@ -44,7 +44,6 @@ class UploadModal extends React.Component {
   }
 
   onDrop(image) {
-    console.log(image);
     this.setState({imageFile: image[0], imageURL: image[0].preview});
   }
 

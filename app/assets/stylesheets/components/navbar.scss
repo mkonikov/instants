@@ -10,9 +10,11 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    img {
+    a img {
       max-height: 35px;
     }
+
+
 
 
     #tools {
@@ -27,4 +29,9 @@ nav {
       }
     }
   }
+}
+
+
+nav #tools img {
+  max-height: 35px;
 }
