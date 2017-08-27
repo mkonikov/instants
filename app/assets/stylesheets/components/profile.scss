@@ -76,3 +76,17 @@
     margin-right: 20px;
   }
 }
+
+.profile-counts {
+  display: flex;
+  margin: 20px 0;
+  font-size: 16px;
+
+  div {
+  margin-right: 40px;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+}

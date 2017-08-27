@@ -13,8 +13,12 @@ class Api::UsersController < ApplicationController
 
   def show
     if params[:username]
-      @user = User.find_by(username: params[:username])
+      @user = User.includes(:followees, :followers).find_by(username: params[:username])
+
       @posts = @user.posts.order(created_at: :desc)
+      @followers = @user.followers
+      @followees = @user.followees
+
       render :profile
     end
   end

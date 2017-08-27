@@ -9,7 +9,7 @@
         "bio": "I'm awesome!",
         "profileFeed": [1, 4, 5],
         "followerIds": [2,5,6],
-        "followingIds": [2,5,7]
+        "followeeIds": [2,5,7]
       }
 
     },

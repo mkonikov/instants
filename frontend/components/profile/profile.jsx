@@ -3,8 +3,7 @@ import ProfileDetailContainer from './profile_detail_container';
 import ProfilePosts from './profile_posts';
 import ProfilePostItemDetailContainer from './profile_post_item_detail_container';
 import { Route } from 'react-router-dom';
-
-
+import DocumentTitle from 'react-document-title';
 
 class Profile extends React.Component {
 
