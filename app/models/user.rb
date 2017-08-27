@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :name, :username, :password_digest, :session_token, presence: true
-  validates :username, :email, uniqueness: true
+  validates :username, :email, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 8, allow_nil: true }
 
   has_attached_file :avatar, default_url: "default_avatar.svg",

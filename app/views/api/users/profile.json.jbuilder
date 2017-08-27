@@ -1,25 +1,25 @@
 profileIds = []
-followerIds = []
-followeeIds = []
+followerUsernames = []
+followeeUsernames = []
 
 @posts.each do |post|
   profileIds << post.id
 end
 
 @followers.each do |follower|
-  followerIds << follower.id
+  followerUsernames << follower.username
 end
 
 @followees.each do |followee|
-  followeeIds << followee.id
+  followeeUsernames << followee.username
 end
 
 
 json.user do
   json.partial! 'api/users/user', user: @user
   json.profileFeed profileIds
-  json.followerIds followerIds
-  json.followeeIds followeeIds
+  json.followerUsernames followerUsernames
+  json.followeeUsernames followeeUsernames
 end
 
 json.posts do

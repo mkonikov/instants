@@ -23,6 +23,31 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def follow
+    @following = Following.new(
+      followee_id: params[:id],
+      follower_id: current_user.id
+    )
+    if @following.save
+      render json: {followee: @following.followee.username,
+        follower: current_user.username}, status: 200
+    else
+      render json: @user.errors.full_messages, status: 400
+    end
+  end
+
+  def unfollow
+    @following = Following.find_by(followee_id: params[:id])
+
+    if @following.delete
+      render json: {followee: @following.followee.username,
+        follower: current_user.username}, status: 200
+    else
+      render json: @following.errors.full_messages, status: 400
+    end
+
+  end
+
   private
 
   def user_params
