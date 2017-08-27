@@ -30,10 +30,28 @@ class User < ApplicationRecord
     styles: { thumb: "150x150#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-
   attr_reader :password
 
   after_initialize :ensure_session_token
+
+
+  has_many :follower_followings,
+    foreign_key: :followee_id,
+    class_name: :Following,
+    dependent: :destroy
+
+  has_many :followers,
+    through: :follower_followings,
+    source: :follower
+
+  has_many :followee_followings,
+    foreign_key: :follower_id,
+    class_name: :Following,
+    dependent: :destroy
+
+  has_many :followees,
+    through: :followee_followings,
+    source: :followee
 
   has_many :posts,
     foreign_key: :author_id,
