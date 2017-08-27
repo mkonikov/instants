@@ -10,3 +10,6 @@ border-box
 
 
 * Document Title Changes
+* go to next photo in detail view (with keyboard and/or mouse)
+* support video
+* constrain originals 
