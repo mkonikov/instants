@@ -1,4 +1,5 @@
-import { RECEIVE_CURRENT_USER_POST, RECEIVE_COMPLETE_POST } from '../actions/post_actions';
+import { RECEIVE_CURRENT_USER_POST,
+  RECEIVE_COMPLETE_POST, RECEIVE_FEED } from '../actions/post_actions';
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
 import { merge } from 'lodash';
 
@@ -22,6 +23,10 @@ const postsReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_COMPLETE_PROFILE:
+      newState = merge({}, state, action.payload.posts);
+      return newState;
+
+    case RECEIVE_FEED:
       newState = merge({}, state, action.payload.posts);
       return newState;
 

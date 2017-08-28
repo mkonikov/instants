@@ -14,3 +14,10 @@ export const fetchCompletePost = (postId) => {
     url: `/api/posts/${postId}`,
   });
 };
+
+export const fetchFeed = () => {
+  return $.ajax({
+    method: 'get',
+    url: `/api/posts`
+  });
+};
