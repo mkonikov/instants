@@ -22,8 +22,8 @@
         "authorName": "jdoe94",
         "createdAt": "2017-08-25T16:50:12.513Z",
         "commentIds": [1, 3, 6],
-        "likeCount": [2,4,6],
-        "liked": true
+        "likeCount": 3,
+        "hasLiked": true
       }
 
     },

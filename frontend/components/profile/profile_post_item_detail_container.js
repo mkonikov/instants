@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ProfilePostItemDetail from './profile_post_item_detail';
 import { fetchCompletePost } from '../../actions/post_actions';
+import { likePost, unlikePost } from '../../actions/like_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,6 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     fetchCompletePost: () => dispatch(fetchCompletePost(ownProps.match.params.postId)),
+    likePost: () => dispatch(likePost(ownProps.match.params.postId)),
+    unlikePost: () => dispatch(unlikePost(ownProps.match.params.postId)),
   });
 };
 

@@ -10,7 +10,8 @@ const ProfilePostItem = ({ post }) => {
       <Link to={`${post.authorName}/posts/${post.id}`}>
         <div className="post-item-hover">
           <div className="like-count">
-            <i className="fa fa-heart" aria-hidden="true"></i> 0
+            <i className="fa fa-heart" aria-hidden="true"></i>
+              {post.likeCount}
           </div>
           <div className="comment-count">
             <i className="fa fa-comment" aria-hidden="true"></i> 0

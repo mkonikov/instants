@@ -64,10 +64,12 @@
 }
 
 
-
 .post-details {
   padding: 25px;
   width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 
   .caption {
@@ -84,7 +86,25 @@
   }
 
   .post-date {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
+}
+
+.like-comments {
+  .icons {
+    margin-bottom: 10px;
+  }
+
+  .like-count {
+    font-weight: 600;
+  }
+  .fa {
+    color: #ed4956;
+    position: static;
+  }
+
+  i.fa.unliked{
+    color: $light-black;
+  }
 }
