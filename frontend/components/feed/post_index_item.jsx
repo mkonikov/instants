@@ -26,7 +26,9 @@ class PostIndexItem extends React.Component {
               {post.authorName}
             </Link>{post.caption}
           </div>
-          <div><Moment fromNow>{post.createdAt}</Moment></div>
+          <div className="post-date">
+            <Moment fromNow>{post.createdAt}</Moment>
+          </div>
         </div>
       </li>
     );
