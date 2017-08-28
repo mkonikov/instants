@@ -7,6 +7,15 @@ class PostsIndex extends React.Component {
     this.props.fetchFeed();
   }
 
+  renderNoFollows() {
+    return (
+      <div>
+        Welcome to Instants!
+        Follow accounts to see photos in your feed.
+      </div>
+    );
+  }
+
   render() {
 
     if (!this.props.feed) return null;
