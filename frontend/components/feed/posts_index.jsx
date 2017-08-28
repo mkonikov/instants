@@ -21,7 +21,11 @@ class PostsIndex extends React.Component {
     if (!this.props.feed) return null;
 
     const posts = this.props.feed.map((post) => {
-      return (<PostIndexItem key={post.id} post={post} />);
+      return (<PostIndexItem
+        likePost={this.props.likePost(post.id)}
+        unlikePost={this.props.unlikePost(post.id)}
+        key={post.id}
+        post={post} />);
     });
     return(
       <ul id="feed">

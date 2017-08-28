@@ -35,6 +35,26 @@
 .feed-post-details {
   padding: 16px;
 
+  .feed-icons {
+    margin-bottom: 10px;
+
+    .fa {
+      cursor: pointer;
+      font-size: 25px;
+      color: #ed4956;
+    }
+
+    i.fa.unliked{
+      color: $light-black;
+    }
+  }
+
+
+  .like-count {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
   a {
     text-decoration: none;
     color: $light-black;

@@ -6,9 +6,26 @@ import { Link } from 'react-router-dom';
 
 class PostIndexItem extends React.Component {
 
+  renderLikeButton() {
+    if (this.props.post.hasLiked) {
+      return(
+        <i className="fa fa-heart liked"
+          aria-hidden="true" onClick={this.props.unlikePost}></i>
+);
+    } else {
+      return(
+        <i className="fa fa-heart-o unliked"
+          aria-hidden="true"  onClick={this.props.likePost}></i>
+      );
+    }
+  }
+
   render() {
 
     const post = this.props.post;
+    const likeButton = this.renderLikeButton();
+    const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
+
     return(
       <li className="feed-post">
         <div className="post-author">
@@ -21,6 +38,12 @@ class PostIndexItem extends React.Component {
         </div>
         <div><img src={post.imageUrl} alt={post.caption} /></div>
         <div className="feed-post-details">
+          <div className="feed-icons">
+            {likeButton}
+          </div>
+          <div className="like-count">
+            {likes}
+          </div>
           <div className="feed-post-caption">
             <Link to={`/${post.authorName}`}>
               {post.authorName}
