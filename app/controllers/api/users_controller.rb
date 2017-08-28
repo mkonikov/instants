@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   def show
     if params[:username]
       @user = User
-        .includes(:followees, :followers, :posts, posts: [:author])
+        .includes(:followees, :followers, :posts, posts: [:author, :likes])
         .order("posts.created_at DESC")
         .find_by(username: params[:username])
 
