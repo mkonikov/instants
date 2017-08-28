@@ -25,6 +25,31 @@ class Api::PostsController < ApplicationController
     @post_author = @post.author
   end
 
+  def like
+    @like = Like.new(
+      post_id: params[:id],
+      user_id: current_user.id
+    )
+    if @like.save
+      render json: {post: @like.post_id,
+        user: current_user.username}, status: 200
+    else
+      render json: @like.errors.full_messages, status: 400
+    end
+  end
+
+  def unlike
+    @like = Like.find_by(post_id: params[:id])
+
+    if @like.delete
+      render json: {post: @like.post_id,
+        user: current_user.username}, status: 200
+    else
+      render json: @like.errors.full_messages, status: 400
+    end
+
+  end
+
   private
 
   def post_params

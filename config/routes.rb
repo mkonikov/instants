@@ -9,7 +9,12 @@ Rails.application.routes.draw do
       end
     end
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:index, :create, :destroy, :show]
+    resources :posts, only: [:index, :create, :destroy, :show] do
+      member do
+        post 'like'
+        delete 'unlike'
+      end
+    end
   end
 
   root "static_pages#root"
