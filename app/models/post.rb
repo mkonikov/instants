@@ -27,4 +27,8 @@ class Post < ApplicationRecord
   has_many :likes,
     dependent: :destroy
 
+  has_many :comments,
+    -> { order(:created_at => :asc) },
+    dependent: :destroy
+
 end

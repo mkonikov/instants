@@ -2,9 +2,9 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post
-      .includes(:author, :likes)
+      .includes(:author, :likes, :comments)
       .where(author: current_user.followees.to_a.concat([current_user]))
-      .order(created_at: :desc)
+      .order("posts.created_at DESC")
 
   end
 

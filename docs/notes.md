@@ -8,7 +8,7 @@ Profile Container extensive if logic.
 border-box
 
 q/ Currently storing avatar with posts. How bad for normalizing state?
-
+q/ Meagan - ordering comments
 
 
 * Document Title Changes
