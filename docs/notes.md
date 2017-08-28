@@ -14,3 +14,4 @@ border-box
 * support video
 * constrain originals
 * Loading animations and disabled buttons
+* Modify Dropzone to only accept image files, exclude SVG (only one?)

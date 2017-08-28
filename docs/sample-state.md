@@ -17,11 +17,10 @@
       1: {
         "imageUrl": "assets/posts/435.jpg",
         "thumbUrl": "assets/posts/thumb/435.jpg"
-        "description": "What a day!",
+        "caption": "What a day!",
         "authorId": 1,
         "authorName": "jdoe94",
-        "datePosted": "8/12/2017",
-        "daysAgo": "14 days",
+        "createdAt": "2017-08-25T16:50:12.513Z",
         "commentIds": [1, 3, 6],
         "likeCount": [2,4,6],
         "liked": true
@@ -40,7 +39,7 @@
   "ui": {
     "loading": false,
     "uploadModal": false,
-    "feed_ord": [1, 3, 6]
+    "feedOrd": [1, 3, 6]
   },
   "errors": {
     "login": ["Password must be 6 characters long"],
@@ -48,7 +47,7 @@
     "uploadPost" ["Invalid image"],
   },
   "session": {
-    "userId": 1
+    "currentUser": 1
   }
 }
 
