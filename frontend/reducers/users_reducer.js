@@ -8,6 +8,7 @@ const usersReducer = (state = {}, action) => {
   let newState;
   let currentUser;
   let updatedUser;
+  let followee;
 
   Object.freeze(state);
 
@@ -20,22 +21,19 @@ const usersReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_NEW_FOLLOW:
-      currentUser = state[action.following.follower];
-      currentUser.followeeUsernames.push(action.following.followee);
-      newState = merge({}, state, {[currentUser.username]: currentUser});
-      console.log(newState);
-      debugger;
+      followee = state[action.following.followee];
+      followee.followerUsernames.push(action.following.follower);
+      newState = merge({}, state, {[followee.username]: followee});
       return newState;
 
     case REMOVE_FOLLOW:
-      currentUser = state[action.following.follower];
-      currentUser.followeeUsernames = currentUser.followeeUsernames.filter((username) => {
-        debugger;
-        return username !== action.following.followee;
+      followee = state[action.following.followee];
+      followee.followerUsernames = followee.followerUsernames.filter((username) => {
+        return username !== action.following.follower;
       });
-      newState = merge({}, state, {[currentUser.username]: currentUser});
+      newState = merge({}, state, {[followee.username]: followee});
 
-      return state;
+      return newState;
 
     case RECEIVE_CURRENT_USER_POST:
       currentUser = state[action.payload.authorName];

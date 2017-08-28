@@ -11,7 +11,8 @@ border-box
 Q/ Routes on User/users is quite verbose
 Q/ Same way new post is storing author name so don't have to look thru all
 users and filter for guest name, would need the same thing? Pull it from state in action creator?
-Q/ Adding follower id array to window, and everywhere else to ensure current user always has follows?
+Q/ Adding follower id array to window, and everywhere else to ensure current user always has follows? Or better yet, checking profile visited if current user is a follower?
+Q/ When removing maintain state across all inputs?
 
 
 * Document Title Changes

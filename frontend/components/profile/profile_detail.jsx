@@ -34,6 +34,22 @@ class ProfileDetail extends React.Component {
     onClick={this.handleButtonClick('edit')}>Edit Profile</button>);
   }
 
+  renderFriendNoPosts() {
+    return (
+      <div>
+        No posts yet.
+      </div>
+    );
+  }
+
+  renderSelfNoPosts() {
+    return (
+      <div>
+        Start capturing and sharing your instants.
+      </div>
+    );
+  }
+
   render() {
     const user = this.props.user;
     if (!user || !user.profileFeed) return null;
@@ -52,8 +68,10 @@ class ProfileDetail extends React.Component {
             <div><img src={user.avatarUrl} /></div>
           </div>
           <div>
-            <div className="username">{user.username}</div>
-            <div className="follow-edit">{button}</div>
+            <div className="user-head">
+              <div className="username">{user.username}</div>
+              <div className="follow-edit">{button}</div>
+            </div>
             <div className="profile-counts">
               <div><strong>{numPosts}</strong> {postsText}</div>
               <div><strong>{numFollowers}</strong> {followersText}</div>
