@@ -1,0 +1,43 @@
+#feed {
+  width: 600px;
+  margin: auto;
+}
+
+.feed-post {
+  border-radius: 3px;
+  border: 1px solid $light-gray;
+  background: white;
+  margin-bottom: 60px;
+
+  img {
+    width: 100%;
+  }
+
+  .post-author {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: $light-black;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+}
+
+.feed-post-details {
+  padding: 16px;
+
+  a {
+    text-decoration: none;
+    color: $light-black;
+    font-weight: 600;
+  }
+}

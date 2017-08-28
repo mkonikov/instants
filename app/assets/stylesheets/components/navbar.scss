@@ -2,6 +2,11 @@ nav {
   background: white;
   border-bottom: 1px solid $light-gray;
   padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
 
   #nav-container {
     max-width: 950px;

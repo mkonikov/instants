@@ -15,7 +15,7 @@ class PostsIndex extends React.Component {
       return (<PostIndexItem key={post.id} post={post} />);
     });
     return(
-      <ul>
+      <ul id="feed">
         {posts}
       </ul>
     );
