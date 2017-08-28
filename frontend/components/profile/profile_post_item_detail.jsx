@@ -26,16 +26,35 @@ class ProfilePostItemDetail extends React.Component {
     this.props.history.push(`/${this.props.author.username}`);
   }
 
+  renderDate() {
+    const postDate = new Date(this.props.post.createdAt);
+    const today = new Date();
+
+    if (today - postDate < 864000000) {
+      return (<Moment fromNow>{postDate}</Moment>);
+    } else if (today.getYear().toString() === postDate.getYear().toString()) {
+      const date = (<Moment format="MMMM D">{postDate}</Moment>);
+      return date;
+    } else {
+      return (<Moment format="LL">{postDate}</Moment>);
+    }
+
+  }
+
 
   render() {
     if (!this.props.post) return null;
+
+    const post = this.props.post;
+
+    const date = this.renderDate();
 
     return (
       <div id="post-modal" className="modal" onClick={this.closeModal}>
         <i className="fa fa-times" aria-hidden="true"></i>
         <div id="post-container" onClick={(e) => e.stopPropagation()}>
         <div className="image">
-          <img src={this.props.post.imageUrl} />
+          <img src={post.imageUrl} />
         </div>
         <div className="post-details">
           <div id="post-author-details">
@@ -49,10 +68,10 @@ class ProfilePostItemDetail extends React.Component {
           <div className="caption">
             <Link to={`/${this.props.author.username}`}>
               {this.props.author.username}</Link>
-            {this.props.post.caption}
+            {post.caption}
           </div>
           <div className="post-date">
-            <Moment fromNow>{this.props.post.createdAt}</Moment>
+            {date}
           </div>
         </div>
       </div>

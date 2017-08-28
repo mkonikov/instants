@@ -27,6 +27,7 @@ Post.destroy_all
   post_options = {
     author_id: user1.id,
     caption: Faker::Lorem.sentence,
+    created_at: Faker::Time.backward(365, :all),
     image: File.open("app/assets/images/#{n+1}.jpg")
   }
   Post.create(post_options)
