@@ -16,7 +16,7 @@ const postsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER_POST:
-      newPost = {[action.payload.id]: action.payload };
+      newPost = {[action.payload.post.id]: action.payload.post };
       newState = merge({}, state, newPost);
       return newState;
 

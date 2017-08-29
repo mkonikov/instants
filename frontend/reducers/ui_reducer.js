@@ -1,13 +1,10 @@
 import { TOGGLE_UPLOAD } from '../actions/ui_actions';
 import { RECEIVE_FEED } from '../actions/post_actions';
-
-import { merge } from 'lodash';
+import { merge, values } from 'lodash';
 
 const initialState = {
   uploadModal: false,
 };
-
-
 
 const uiReducer = (state = initialState, action) => {
   Object.freeze(state);

@@ -36,8 +36,10 @@ const usersReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_CURRENT_USER_POST:
-      currentUser = state[action.payload.authorName];
-      currentUser.profileFeed.unshift(action.payload.id);
+      const newPost = action.payload.post;
+      currentUser = state[newPost.authorName];
+      currentUser.profileFeed = currentUser.profileFeed || [];
+      currentUser.profileFeed.unshift(newPost.id);
       newState = merge({}, state, currentUser);
       return newState;
 
