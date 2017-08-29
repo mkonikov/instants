@@ -79,7 +79,7 @@ class ProfileDetail extends React.Component {
 
   render() {
     const user = this.props.user;
-    if (!user || !user.profileFeed) return null;
+    if (!user || !user.profileFeed || !user.followerUsernames) return null;
 
     let button = (this.props.followStatus) ? this.renderUnfollowButton() : this.renderFollowButton();
     if (this.props.self) button = this.renderEditButton();

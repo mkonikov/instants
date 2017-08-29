@@ -1,4 +1,4 @@
-import { TOGGLE_UPLOAD } from '../actions/ui_actions';
+import { TOGGLE_UPLOAD, RECEIVE_ERRORS } from '../actions/ui_actions';
 import { RECEIVE_FEED } from '../actions/post_actions';
 import { merge, values } from 'lodash';
 
@@ -14,6 +14,11 @@ const uiReducer = (state = initialState, action) => {
     case TOGGLE_UPLOAD:
       newState = Object.assign({}, state);
       newState.uploadModal = !state.uploadModal;
+      return newState;
+
+    case RECEIVE_ERRORS:
+      const errors = action.errors;
+      newState = Object.assign({}, state, {errors});
       return newState;
 
     case RECEIVE_FEED:
