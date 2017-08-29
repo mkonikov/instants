@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 const ProfilePostItem = ({ post }) => {
-  debugger;
   const commentCount = post.commentIds.length;
   return (
     <div className="post-item">

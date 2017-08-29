@@ -1,7 +1,7 @@
 import CommentsIndex from './comments_index';
 import { connect } from 'react-redux';
 import { selectComments } from '../../reducers/selectors';
-import { postComment, deleteComment } from '../../actions/comment_actions';
+import { deleteComment } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownProps) => {

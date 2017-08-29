@@ -18,3 +18,4 @@ q/ Meagan - ordering comments
 * constrain originals
 * Loading animations and disabled buttons
 * Modify Dropzone to only accept image files, exclude SVG (only one?)
+* ensure enter works on forms to submit

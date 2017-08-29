@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { withRouter } from 'react-router-dom';
 import CommentsIndexContainer from '../feed/comments_index_container';
-
-
-
-
+import CommentFormContainer from '../feed/comment_form_container';
 
 class ProfilePostItemDetail extends React.Component {
   constructor(props) {
@@ -93,6 +90,7 @@ class ProfilePostItemDetail extends React.Component {
               <CommentsIndexContainer
                 postAuthor = {this.props.author.username}
                 commentIds = {post.commentIds} />
+              <CommentFormContainer postId={post.id} />
             </div>
             <div className="like-comments">
               <div className="icons">
