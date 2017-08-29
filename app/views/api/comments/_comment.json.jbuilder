@@ -1,4 +1,5 @@
 json.body comment.body
 json.postId comment.post_id
+json.id comment.id
 json.authorId comment.author_id
-json.authorUsername comment.author.username
+json.authorName comment.author.username

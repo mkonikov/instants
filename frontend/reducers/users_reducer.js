@@ -32,7 +32,6 @@ const usersReducer = (state = {}, action) => {
         return username !== action.following.follower;
       });
       newState = merge({}, state, {[followee.username]: followee});
-
       return newState;
 
     case RECEIVE_CURRENT_USER_POST:

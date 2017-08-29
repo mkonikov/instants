@@ -2,7 +2,7 @@ import { RECEIVE_CURRENT_USER_POST,
   RECEIVE_COMPLETE_POST, RECEIVE_FEED } from '../actions/post_actions';
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
 import { RECEIVE_NEW_LIKE, REMOVE_LIKE } from '../actions/like_actions';
-
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/comment_actions';
 import { merge } from 'lodash';
 
 const postsReducer = (state = {}, action) => {
@@ -11,11 +11,29 @@ const postsReducer = (state = {}, action) => {
   let newPost;
   let updatedPost;
   let newState;
+  let commentId;
+  let postId;
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER_POST:
       newPost = {[action.payload.id]: action.payload };
       newState = merge({}, state, newPost);
+      return newState;
+
+    case RECEIVE_COMMENT:
+      commentId = action.comment.id;
+      postId = action.comment.postId;
+      newState = Object.assign({}, state);
+      newState[postId].push(commentId);
+      return newState;
+
+    case REMOVE_COMMENT:
+      commentId = action.comment.id;
+      postId = action.comment.postId;
+      newState = Object.assign({}, state);
+      newState[postId].commentIds = newState[postId].commentIds.filter((id) => {
+        return id !== commentId;
+      });
       return newState;
 
     case RECEIVE_NEW_LIKE:
@@ -35,9 +53,9 @@ const postsReducer = (state = {}, action) => {
     case RECEIVE_COMPLETE_POST:
       newPost = {[action.payload.id]: action.payload };
       newState = merge({}, state, newPost);
+      return newState;
       // Possible to do: consider merging receive complete
       // and current user post - only in this reducer!
-      return newState;
 
     case RECEIVE_COMPLETE_PROFILE:
       newState = merge({}, state, action.payload.posts);

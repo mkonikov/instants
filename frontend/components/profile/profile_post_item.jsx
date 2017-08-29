@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 const ProfilePostItem = ({ post }) => {
+  debugger;
+  const commentCount = post.commentIds.length;
   return (
     <div className="post-item">
 
@@ -14,7 +16,8 @@ const ProfilePostItem = ({ post }) => {
               {post.likeCount}
           </div>
           <div className="comment-count">
-            <i className="fa fa-comment" aria-hidden="true"></i> 0
+            <i className="fa fa-comment" aria-hidden="true"></i>
+              {commentCount}
           </div>
         </div>
         <img alt={post.caption} src={post.thumbUrl} />

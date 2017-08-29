@@ -37,10 +37,25 @@ post_ids = []
 
 end
 
+Like.destroy_all
+
+posts_to_like = post_ids.dup
+
+10.times do
+  like_options = {
+    post_id: posts_to_like.pop,
+    user_id: user1.id
+  }
+  l = Like.create(like_options)
+end
+
+Comment.destroy_all
 
 50.times do
-  like_options = {
-    post_id: post_id.sample
-    author_id:
+  comment_options = {
+    post_id: post_ids.sample,
+    body: Faker::Friends.quote,
+    author_id: user1.id
   }
+  Comment.create(comment_options)
 end

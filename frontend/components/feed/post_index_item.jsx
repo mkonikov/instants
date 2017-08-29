@@ -1,6 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import CommentsIndexContainer from './comments_index_container';
 
 
 
@@ -36,19 +37,30 @@ class PostIndexItem extends React.Component {
             {post.authorName}
           </Link>
         </div>
-        <div><img src={post.imageUrl} alt={post.caption} /></div>
+        <div>
+          <img src={post.imageUrl} alt={post.caption} />
+        </div>
+
         <div className="feed-post-details">
+
+          <CommentsIndexContainer
+            postAuthor = {post.authorName}
+            commentIds = {post.commentIds} />
+
           <div className="feed-icons">
             {likeButton}
           </div>
+
           <div className="like-count">
             {likes}
           </div>
+
           <div className="feed-post-caption">
             <Link to={`/${post.authorName}`}>
               {post.authorName}
             </Link>{post.caption}
           </div>
+
           <div className="post-date">
             <Moment fromNow>{post.createdAt}</Moment>
           </div>

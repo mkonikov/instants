@@ -5,3 +5,11 @@ export const selectFeedPosts = (postIds, state) => {
   }
   return selectedPosts;
 };
+
+export const selectComments = (commentIds, state) => {
+  let selectedComments = [];
+  for (var i = 0; i < commentIds.length; i++) {
+    selectedComments.push(state.entities.comments[commentIds[i]]);
+  }
+  return selectedComments;
+};

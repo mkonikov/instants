@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { withRouter } from 'react-router-dom';
+import CommentsIndexContainer from '../feed/comments_index_container';
+
 
 
 
@@ -88,6 +90,9 @@ class ProfilePostItemDetail extends React.Component {
                 </Link>
                 {post.caption}
               </div>
+              <CommentsIndexContainer
+                postAuthor = {this.props.author.username}
+                commentIds = {post.commentIds} />
             </div>
             <div className="like-comments">
               <div className="icons">

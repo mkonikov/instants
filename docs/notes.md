@@ -14,6 +14,7 @@ q/ Meagan - ordering comments
 * Document Title Changes
 * go to next photo in detail view (with keyboard and/or mouse)
 * support video
+* error handling
 * constrain originals
 * Loading animations and disabled buttons
 * Modify Dropzone to only accept image files, exclude SVG (only one?)
