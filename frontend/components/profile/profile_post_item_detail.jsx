@@ -63,7 +63,7 @@ class ProfilePostItemDetail extends React.Component {
     const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
     const likeButton = this.renderLikeButton();
     const commentButton = (
-      <label htmlFor="comment-field">
+      <label htmlFor={`comment-field-${post.id}`}>
         <i className="fa fa-comment-o"
       aria-hidden="true"></i>
       </label>
@@ -87,16 +87,18 @@ class ProfilePostItemDetail extends React.Component {
                 <Link to={`/${this.props.author.username}`}>
                   {this.props.author.username}</Link>
               </div>
-              <div className="caption">
-                <Link to={`/${this.props.author.username}`}>
-                  {this.props.author.username}
-                </Link>
-                {post.caption}
+              <div className="caption-comments">
+                <div className="caption">
+                  <Link to={`/${this.props.author.username}`}>
+                    {this.props.author.username}
+                  </Link>
+                  {post.caption}
+                </div>
+                <CommentsIndexContainer
+                  postAuthor = {this.props.author.username}
+                  commentIds = {post.commentIds} />
               </div>
-              <CommentsIndexContainer
-                postAuthor = {this.props.author.username}
-                commentIds = {post.commentIds} />
-            </div>
+              </div>
             <div className="like-comments">
               <div className="icons">
                 {likeButton}

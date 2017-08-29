@@ -22,7 +22,7 @@ const CommentIndexItem = ({comment, deleteComment, currentUser, postAuthor}) => 
     </button>
   );
 
-  if (postAuthor === comment.authorName || currentUser === postAuthor) {
+  if (currentUser === comment.authorName || currentUser === postAuthor) {
     commentFull = (
       <div className="full-comment">
         {commentBody}

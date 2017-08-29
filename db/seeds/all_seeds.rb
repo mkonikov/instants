@@ -1,0 +1,5 @@
+require_relative 'users'
+require_relative 'follows'
+require_relative 'posts'
+require_relative 'comments'
+require_relative 'likes'
