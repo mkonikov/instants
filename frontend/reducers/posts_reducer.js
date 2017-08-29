@@ -24,7 +24,7 @@ const postsReducer = (state = {}, action) => {
       commentId = action.comment.id;
       postId = action.comment.postId;
       newState = Object.assign({}, state);
-      newState[postId].push(commentId);
+      newState[postId].commentIds.push(commentId);
       return newState;
 
     case REMOVE_COMMENT:
@@ -51,11 +51,9 @@ const postsReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_COMPLETE_POST:
-      newPost = {[action.payload.id]: action.payload };
+      newPost = action.payload.post;
       newState = merge({}, state, newPost);
       return newState;
-      // Possible to do: consider merging receive complete
-      // and current user post - only in this reducer!
 
     case RECEIVE_COMPLETE_PROFILE:
       newState = merge({}, state, action.payload.posts);

@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(:author, :likes).find(params[:id])
+    @post = Post.includes(:author, :comments, :likes).find(params[:id])
     @post_author = @post.author
   end
 

@@ -2,6 +2,8 @@ import React from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import CommentsIndexContainer from './comments_index_container';
+import CommentForm from '../feed/comment_form';
+
 
 
 
@@ -63,6 +65,9 @@ class PostIndexItem extends React.Component {
 
           <div className="post-date">
             <Moment fromNow>{post.createdAt}</Moment>
+          </div>
+          <div>
+            <CommentForm postId={post.id} />
           </div>
         </div>
       </li>

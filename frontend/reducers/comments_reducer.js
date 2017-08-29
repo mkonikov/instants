@@ -1,6 +1,8 @@
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
-import { RECEIVE_FEED } from '../actions/post_actions';
-import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/comment_actions';
+import { RECEIVE_FEED,
+  RECEIVE_COMPLETE_POST } from '../actions/post_actions';
+import { RECEIVE_COMMENT,
+  REMOVE_COMMENT } from '../actions/comment_actions';
 
 
 
@@ -17,6 +19,10 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       newComment = {[action.comment.id]: action.comment};
       newState = Object.assign({}, state, newComment);
+      return newState;
+
+    case RECEIVE_COMPLETE_POST:
+      newState = Object.assign({}, state, action.payload.comments);
       return newState;
 
     case REMOVE_COMMENT:
