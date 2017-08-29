@@ -75,10 +75,11 @@
   .caption {
     margin-top: 10px;
     line-height: 1.3;
+    margin-bottom: 7px;
 
     a {
       display: inline-block;
-      margin-right: 10px;
+      margin-right: 4px;
       text-decoration: none;
       font-weight: 600;
       color: black;
@@ -92,6 +93,9 @@
 }
 
 .like-comments {
+  border-top: 1px solid $light-gray;
+  padding-top: 10px;
+
   .icons {
     margin-bottom: 10px;
   }
@@ -100,11 +104,14 @@
     font-weight: 600;
   }
   .fa {
-    color: #ed4956;
+    color: $light-black;
     position: static;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 16px;
   }
 
-  i.fa.unliked{
-    color: $light-black;
+  i.fa.liked{
+    color: #ed4956;
   }
 }

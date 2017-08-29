@@ -27,6 +27,12 @@ class PostIndexItem extends React.Component {
 
     const post = this.props.post;
     const likeButton = this.renderLikeButton();
+    const commentButton = (
+      <label htmlFor={`comment-field-${this.props.post.id}`}>
+        <i className="fa fa-comment-o"
+      aria-hidden="true"></i>
+      </label>
+    );
     const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
 
     return(
@@ -43,14 +49,12 @@ class PostIndexItem extends React.Component {
           <img src={post.imageUrl} alt={post.caption} />
         </div>
 
-        <div className="feed-post-details">
+        <div className="feed-post-details like-comments">
 
-          <CommentsIndexContainer
-            postAuthor = {post.authorName}
-            commentIds = {post.commentIds} />
 
-          <div className="feed-icons">
+          <div className="feed-icons icons">
             {likeButton}
+            {commentButton}
           </div>
 
           <div className="like-count">
@@ -63,10 +67,14 @@ class PostIndexItem extends React.Component {
             </Link>{post.caption}
           </div>
 
+          <CommentsIndexContainer
+            postAuthor = {post.authorName}
+            commentIds = {post.commentIds} />
+
           <div className="post-date">
             <Moment fromNow>{post.createdAt}</Moment>
           </div>
-          <div>
+          <div id="add-comment">
             <CommentForm postId={post.id} />
           </div>
         </div>

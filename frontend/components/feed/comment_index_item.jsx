@@ -7,7 +7,7 @@ const CommentIndexItem = ({comment, deleteComment, currentUser, postAuthor}) => 
   let commentFull;
 
   const commentBody = (
-    <div>
+    <div className="comment-item">
       <Link to={`/${comment.authorName}`}>
         {comment.authorName}
       </Link>
@@ -16,21 +16,22 @@ const CommentIndexItem = ({comment, deleteComment, currentUser, postAuthor}) => 
   );
 
   const deleteButton = (
-    <button onClick={deleteComment(comment.id)}>
+    <button className="delete-comment"
+      onClick={deleteComment(comment.id)}>
       &#10005;
     </button>
   );
 
   if (postAuthor === comment.authorName || currentUser === postAuthor) {
     commentFull = (
-      <div>
+      <div className="full-comment">
         {commentBody}
         {deleteButton}
       </div>
     );
   } else {
     commentFull = (
-      <div>
+      <div className="full-comment">
         {commentBody}
       </div>
     );

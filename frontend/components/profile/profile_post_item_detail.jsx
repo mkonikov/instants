@@ -62,6 +62,12 @@ class ProfilePostItemDetail extends React.Component {
     const date = this.renderDate();
     const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
     const likeButton = this.renderLikeButton();
+    const commentButton = (
+      <label htmlFor="comment-field">
+        <i className="fa fa-comment-o"
+      aria-hidden="true"></i>
+      </label>
+    );
 
     return (
       <div id="post-modal" className="modal" onClick={this.closeModal}>
@@ -94,6 +100,7 @@ class ProfilePostItemDetail extends React.Component {
             <div className="like-comments">
               <div className="icons">
                 {likeButton}
+                {commentButton}
               </div>
               <div className="like-count">
                 {likes}
@@ -101,7 +108,7 @@ class ProfilePostItemDetail extends React.Component {
               <div className="post-date">
                 {date}
               </div>
-              <div>
+              <div id="add-comment">
                 <CommentForm postId={post.id} />
               </div>
             </div>

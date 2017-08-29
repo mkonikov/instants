@@ -1,0 +1,57 @@
+button.delete-comment, #profile button.delete-comment {
+  color: #c7c7c7;
+  padding: 0 0 0 6px;
+  cursor: pointer;
+}
+
+.full-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.comment-item {
+  line-height: 1.2;
+  margin-bottom: 5px;
+
+  a {
+    text-decoration: none;
+    color: $light-black;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+}
+
+.comment-form {
+
+  input {
+    font-size: 14px;
+    width: 100%;
+    border: 0;
+    padding: 0;
+  }
+  ::-webkit-input-placeholder {
+    color: $gray;
+    font-size: 14px;
+  }
+  ::-moz-placeholder {
+    color: $gray;
+    font-size: 14px;
+  }
+  :-ms-input-placeholder {
+    color: $gray;
+    font-size: 14px;
+  }
+  :-moz-placeholder {
+    color: $gray;
+    font-size: 14px;
+  }
+
+}
+
+#add-comment {
+  margin-top: 10px;
+  padding-top: 16px;
+  border-top: 1px solid $light-gray;
+}

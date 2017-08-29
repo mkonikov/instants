@@ -17,17 +17,14 @@ class CommentForm extends React.Component {
 
 
   handleSubmit(e) {
-    if (e.keyCode === 13) {
-      e.currentTarget.blur();
-      let comment = this.state;
-      comment.postId = this.props.postId;
-      this.props.postComment(comment)
-        .then(
-          () => {
-            this.setState({body: ""});
-          }
-        );
-    }
+    let comment = this.state;
+    comment.postId = this.props.postId;
+    this.props.postComment(comment)
+      .then(
+        () => {
+          this.setState({body: ""});
+        }
+      );
   }
 
   handleInput(e) {
@@ -36,11 +33,13 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <textarea value={this.state.body}
-          onKeyDown={this.handleSubmit}
+      <form
+        className="comment-form"
+        onSubmit={this.handleSubmit}>
+        <input id={`comment-field-${this.props.postId}`}
+          value={this.state.body}
           onChange={this.handleInput}
-          placeholder="Add a comment..."></textarea>
+          placeholder="Add a comment..." />
       </form>
     );
   }
