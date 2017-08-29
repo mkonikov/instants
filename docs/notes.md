@@ -9,6 +9,7 @@ border-box
 
 q/ Currently storing avatar with posts. How bad for normalizing state?
 q/ Meagan - ordering comments
+q/ size SQL method
 
 
 * Document Title Changes

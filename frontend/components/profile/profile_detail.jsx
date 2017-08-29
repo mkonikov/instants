@@ -1,10 +1,19 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
 
 class ProfileDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onDrop = this.onDrop.bind(this);
+    this.renderAvatar = this.renderAvatar.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  onDrop(image) {
+    const formData = new FormData();
+    formData.append("user[avatar]", image[0]);
+    this.props.updateProfile(formData, this.props.user.id);
   }
 
   handleButtonClick(type) {
@@ -50,6 +59,24 @@ class ProfileDetail extends React.Component {
     );
   }
 
+  renderAvatar() {
+    if (this.props.self) {
+      return (<div className="avatar">
+        <Dropzone acceptedFiles="image/jpg,image/png"
+          multiple={false} className="drop-default"
+          onDrop={this.onDrop}>
+          <img src={this.props.user.avatarUrl} />
+        </Dropzone>
+      </div>);
+    } else {
+      return (<div className="avatar">
+        <div>
+          <img src={this.props.user.avatarUrl} />
+        </div>
+      </div>);
+    }
+  }
+
   render() {
     const user = this.props.user;
     if (!user || !user.profileFeed) return null;
@@ -64,9 +91,7 @@ class ProfileDetail extends React.Component {
     return (
       <div>
         <div id="details">
-          <div className="avatar">
-            <div><img src={user.avatarUrl} /></div>
-          </div>
+          {this.renderAvatar()}
           <div>
             <div className="user-head">
               <div className="username">{user.username}</div>

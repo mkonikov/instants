@@ -4,3 +4,13 @@ export const fetchCompleteProfile = (username) => {
     url: `/api/user?username=${username}`,
   });
 };
+
+export const updateProfile = (form, userId) => {
+  return $.ajax({
+    method: 'patch',
+    url: `/api/users/${userId}`,
+    data: form,
+    contentType: false,
+    processData: false,
+  });
+};

@@ -1,5 +1,6 @@
 import { RECEIVE_USER } from '../actions/session_actions';
-import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
+import { RECEIVE_COMPLETE_PROFILE,
+  RECEIVE_UPDATED_PROFILE } from '../actions/profile_actions';
 import { RECEIVE_CURRENT_USER_POST } from '../actions/post_actions';
 import { RECEIVE_NEW_FOLLOW, REMOVE_FOLLOW } from '../actions/follow_actions';
 import { merge, values } from 'lodash';
@@ -38,6 +39,11 @@ const usersReducer = (state = {}, action) => {
       currentUser = state[action.payload.authorName];
       currentUser.profileFeed.unshift(action.payload.id);
       newState = merge({}, state, currentUser);
+      return newState;
+
+    case RECEIVE_UPDATED_PROFILE:
+      updatedUser = { [action.payload.username]: action.payload };
+      newState = merge({}, state, updatedUser);
       return newState;
 
     case RECEIVE_COMPLETE_PROFILE:
