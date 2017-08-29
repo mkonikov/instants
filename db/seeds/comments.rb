@@ -9,9 +9,9 @@ print "🗣 Seeding comments... "
 
 1000.times do
   comment_options = {
-    post_id: post_ids.sample,
+    post_id: SEED_POST_IDS.sample,
     body: Faker::Hipster.sentence,
-    author_id: users.sample.id
+    author_id: SEED_USERS.sample.id
   }
   Comment.create!(comment_options)
 end

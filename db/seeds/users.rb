@@ -146,7 +146,7 @@ user15_options = {
   avatar: File.open("app/assets/images/greg.fleming80.jpg")
 }
 
-users = [User.create!(user_options), User.create!(user2_options),
+SEED_USERS = [User.create!(user_options), User.create!(user2_options),
   User.create!(user3_options), User.create!(user4_options),
   User.create!(user5_options), User.create!(user6_options),
   User.create!(user7_options), User.create!(user8_options), User.create!(user10_options),

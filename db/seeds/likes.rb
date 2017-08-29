@@ -7,8 +7,8 @@ Like.destroy_all
 puts "✅"
 print "👍🏼 Seeding likes... "
 
-users.each do |user|
-  posts_to_like = post_ids.dup.shuffle!
+SEED_USERS.each do |user|
+  posts_to_like = SEED_POST_IDS.dup.shuffle!
 
   60.times do
     like_options = {

@@ -7,8 +7,8 @@ Following.destroy_all
 puts "✅"
 print "🚶 Seeding follows... "
 
-users.each do |user|
-  users_to_follow = users.reject { |u| u.id == user.id }
+SEED_USERS.each do |user|
+  users_to_follow = SEED_USERS.reject { |u| u.id == user.id }
 
   rand(1..13).times do
     followee = users_to_follow.pop
