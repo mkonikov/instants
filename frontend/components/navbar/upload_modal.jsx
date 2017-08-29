@@ -43,8 +43,11 @@ class UploadModal extends React.Component {
     };
   }
 
-  onDrop(image) {
-    this.setState({imageFile: image[0], imageURL: image[0].preview});
+  onDrop(acceptedImage, rejectedImage) {
+    if (acceptedImage.length > 0) {
+      this.setState({imageFile: acceptedImage[0],
+        imageURL: acceptedImage[0].preview});
+    }
   }
 
   render() {
@@ -56,7 +59,7 @@ class UploadModal extends React.Component {
     } else {
       imageArea = (
         <div className="drop-zone">
-          <Dropzone acceptedFiles="image/jpg,image/png"
+          <Dropzone accept="image/jpeg, image/png"
             multiple={false} className="drop-default"
             onDrop={this.onDrop}>
            <p>click to choose your image or drag and drop here</p>
