@@ -7,10 +7,9 @@ Profile Container extensive if logic.
 q/ Currently storing avatar with posts. How bad for normalizing state?
 q/ Meagan - ordering comments
 
+* merge and close git branches
+
 q/ liking too quickly causes error
-
-* UPLOAD MODAL SHOULDNT RENDER WHEN NOT TOGGLED
-
 * Document Title Changes
 * go to next photo in detail view (with keyboard and/or mouse)
 * support video

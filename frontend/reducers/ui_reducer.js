@@ -1,6 +1,8 @@
 import { TOGGLE_UPLOAD,
   RECEIVE_ERRORS, TOGGLE_LOADING } from '../actions/ui_actions';
 import { RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
+import { RECEIVE_SEARCH_USERS_RESULT,
+  CLEAR_SEARCH_USERS_RESULT } from '../actions/search_actions';
 import { merge, values } from 'lodash';
 
 const initialState = {
@@ -21,6 +23,17 @@ const uiReducer = (state = initialState, action) => {
     case TOGGLE_LOADING:
       newState = Object.assign({}, state);
       newState.loading = !state.loading;
+      return newState;
+
+    case RECEIVE_SEARCH_USERS_RESULT:
+      newState = Object.assign({}, state);
+      newState.usersSearchResult = [];
+      action.users.forEach(user => newState.usersSearchResult.push(user.username));
+      return newState;
+
+    case CLEAR_SEARCH_USERS_RESULT:
+      newState = Object.assign({}, state);
+      newState.usersSearchResult = [];
       return newState;
 
     case RECEIVE_ERRORS:

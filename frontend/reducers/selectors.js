@@ -13,3 +13,11 @@ export const selectComments = (commentIds, state) => {
   }
   return selectedComments;
 };
+
+export const selectUsers = (usernames, state) => {
+  let selectedUsers = [];
+  for (var i = 0; i < usernames.length; i++) {
+    selectedUsers.push(state.entities.users[usernames[i]]);
+  }
+  return selectedUsers;
+};

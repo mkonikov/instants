@@ -5,6 +5,8 @@ import { RECEIVE_CURRENT_USER_POST,
   REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_NEW_FOLLOW,
   REMOVE_FOLLOW } from '../actions/follow_actions';
+import { RECEIVE_SEARCH_USERS_RESULT } from '../actions/search_actions';
+
 import { merge, values } from 'lodash';
 
 const usersReducer = (state = {}, action) => {
@@ -21,6 +23,11 @@ const usersReducer = (state = {}, action) => {
       if (!action.payload) return state;
       const newUser = { [action.payload.username]: action.payload};
       newState = merge({}, state, newUser);
+      return newState;
+
+    case RECEIVE_SEARCH_USERS_RESULT:
+      newState = merge({}, state);
+      action.users.forEach((user) => newState[user.username] = user);
       return newState;
 
     case REMOVE_POST:

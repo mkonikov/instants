@@ -1,0 +1,111 @@
+#search {
+  position: relative;
+  width: 245px;
+
+  .triangle {
+    border: solid 1px #e6e6e6;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
+    height: 14px;
+    left: 0;
+    margin: auto;
+    right: 4px;
+    top: 39px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 14px;
+    z-index: 1;
+    position: absolute;
+  }
+
+  &::after {
+    border-color: transparent transparent #fff;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    height: 0;
+    left: 110px;
+    top: 36px;
+    width: 0;
+    z-index: 10;
+    content: ' ';
+    position: absolute;
+  }
+
+  input {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: $lightest-gray;
+    border: 1px solid #dbdbdb;
+    font-size: 14px;
+    text-align: center;
+    padding: 7px;
+    width: 215px;
+    display: block;
+    margin:auto;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $gray;
+    font-weight: 100;
+    font-size: 14px;
+  }
+  ::-moz-placeholder {
+    color: $gray;
+    font-weight: 100;
+    font-size: 14px;
+  }
+  :-ms-input-placeholder {
+    color: $gray;
+    font-weight: 100;
+    font-size: 14px;
+  }
+  :-moz-placeholder {
+    color: $gray;
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  #search-results {
+    position: absolute;
+    top: 44px;
+    background: white;
+    overflow: auto;
+    max-height: 250px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,.0975);
+    border-radius: 3px;
+    border: 1px solid $light-gray;
+    z-index:1;
+
+    li a {
+      text-decoration: none;
+      display: flex;
+      padding: 15px;
+      align-items: center;
+      border-bottom: 1px solid $light-gray;
+
+      &:hover {
+        background: $lightest-gray;
+      }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      margin-right: 10px;
+      border: 1px solid $light-gray;
+    }
+
+    .username {
+      font-weight: 600;
+      color: $light-black;
+      margin-bottom: 4px;
+    }
+    .fullname {
+      color: $gray;
+      font-weight: 200;
+    }
+
+
+  }
+}
