@@ -21,6 +21,9 @@
 html {
   // margin-left: calc(100vw - 100%);
   overflow-y: scroll;
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 body {

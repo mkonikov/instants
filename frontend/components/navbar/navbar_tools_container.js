@@ -11,11 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  toggleUpload: () => {
-    document.body.classList.add('modal-open');
-    dispatch(toggleUpload());
-  },
-
+  toggleUpload: () => dispatch(toggleUpload()),
 });
 
 export default connect(

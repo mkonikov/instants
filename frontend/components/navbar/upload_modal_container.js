@@ -7,7 +7,6 @@ import { toggleUpload, toggleLoading } from '../../actions/ui_actions';
 
 
 const mapStateToProps = (state) => ({
-  uploadOpen: state.ui.uploadModal,
   currentUser: state.session.currentUser,
 });
 

@@ -17,7 +17,7 @@ class ProfilePostItemDetail extends React.Component {
     this.props.toggleLoading();
     this.props.fetchCompletePost()
       .then(this.props.toggleLoading);
-    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
 
   }
 
@@ -27,7 +27,7 @@ class ProfilePostItemDetail extends React.Component {
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('modal-open');
+    document.documentElement.classList.remove('modal-open');
   }
 
   closeModal() {

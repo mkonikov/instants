@@ -1,5 +1,4 @@
 #upload_modal {
-  display: none;
 
   div#form-image {
     background: #b7a9a9;
@@ -94,7 +93,7 @@
 
 }
 
-#upload_modal.active {
+#upload_modal {
   display: flex;
 }
 

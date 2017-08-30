@@ -19,11 +19,15 @@ class UploadModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentDidMount() {
+    document.documentElement.classList.add('modal-open');
+  }
+
   closeModal() {
     if (!this.state.submitting) {
       this.setState({caption: "", imageFile: null,
         imageURL: null, submitting: false,});
-        document.body.classList.remove('modal-open');
+        document.documentElement.classList.remove('modal-open');
         this.props.toggleUpload();
     }
   }
@@ -90,10 +94,9 @@ class UploadModal extends React.Component {
       );
     }
 
-    const displayMode = this.props.uploadOpen ? "active modal" : "modal";
     return(
       <div id="upload_modal"
-        className={displayMode} onClick={this.closeModal}>
+        className="modal" onClick={this.closeModal}>
         <i className="fa fa-times" aria-hidden="true"></i>
         <div className="form-container"
           onClick={(e) => e.stopPropagation()}>
