@@ -4,7 +4,9 @@ import PostIndexItem from './post_index_item';
 class PostsIndex extends React.Component {
 
   componentDidMount() {
-    this.props.fetchFeed();
+    this.props.toggleLoading();
+    this.props.fetchFeed()
+    .then(this.props.toggleLoading);
   }
 
   renderNoFollows() {

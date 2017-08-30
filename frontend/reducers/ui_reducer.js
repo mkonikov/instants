@@ -1,9 +1,11 @@
-import { TOGGLE_UPLOAD, RECEIVE_ERRORS } from '../actions/ui_actions';
+import { TOGGLE_UPLOAD,
+  RECEIVE_ERRORS, TOGGLE_LOADING } from '../actions/ui_actions';
 import { RECEIVE_FEED } from '../actions/post_actions';
 import { merge, values } from 'lodash';
 
 const initialState = {
   uploadModal: false,
+  loading: false,
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -14,6 +16,11 @@ const uiReducer = (state = initialState, action) => {
     case TOGGLE_UPLOAD:
       newState = Object.assign({}, state);
       newState.uploadModal = !state.uploadModal;
+      return newState;
+
+    case TOGGLE_LOADING:
+      newState = Object.assign({}, state);
+      newState.loading = !state.loading;
       return newState;
 
     case RECEIVE_ERRORS:

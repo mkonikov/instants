@@ -18,6 +18,10 @@
  @import "components/*";
 
 
+html {
+  // margin-left: calc(100vw - 100%);
+  overflow-y: scroll;
+}
 
 body {
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica,

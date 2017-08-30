@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
 import { fetchCompleteProfile } from '../../actions/profile_actions';
+import { toggleLoading } from '../../actions/ui_actions';
 import { selectFeedPosts } from '../../reducers/selectors';
 
 
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const username = ownProps.match.params.username;
     return {
     fetchCompleteProfile: (username) => dispatch(fetchCompleteProfile(username)),
+    toggleLoading: () => dispatch(toggleLoading()),
   };
 
 };

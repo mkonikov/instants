@@ -7,7 +7,7 @@ Profile Container extensive if logic.
 q/ Currently storing avatar with posts. How bad for normalizing state?
 q/ Meagan - ordering comments
 
-q/ size SQL method
+q/ liking too quickly causes error
 
 * Document Title Changes
 * go to next photo in detail view (with keyboard and/or mouse)
@@ -16,3 +16,10 @@ q/ size SQL method
 * constrain originals
 * Loading animations and disabled buttons
 * ensure enter works on forms to submit
+* like post rapidly
+* favicon
+
+
+//USE eager loading detected
+  Comment => [:author]
+  Add to your finder: :includes => [:author]

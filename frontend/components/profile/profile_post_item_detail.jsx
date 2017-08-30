@@ -13,8 +13,11 @@ class ProfilePostItemDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCompletePost();
+    this.props.toggleLoading();
+    this.props.fetchCompletePost()
+      .then(this.props.toggleLoading);
     document.body.classList.add('modal-open');
+
   }
 
   componentWillUnmount() {

@@ -8,11 +8,16 @@ import DocumentTitle from 'react-document-title';
 class Profile extends React.Component {
 
   componentDidMount() {
-    this.props.fetchCompleteProfile(this.props.user);
+    this.props.toggleLoading();
+    this.props.fetchCompleteProfile(this.props.user)
+      .then(this.props.toggleLoading);
+
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.user !== nextProps.user) {
-      this.props.fetchCompleteProfile(nextProps.user);
+      this.props.toggleLoading();
+      this.props.fetchCompleteProfile(nextProps.user)
+        .then(this.props.toggleLoading);
     }
 
   }
