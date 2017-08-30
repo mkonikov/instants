@@ -60,6 +60,14 @@ class Api::UsersController < ApplicationController
 
   end
 
+  def search
+    query = params[:user].downcase
+    @users = User
+      .where("(lower(username) LIKE :query) OR (lower(name) LIKE :query)", query: "#{query}%")
+
+    render :search
+  end
+
   private
 
   def user_params

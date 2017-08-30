@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         post 'follow'
         delete 'unfollow'
       end
+      collection do
+        get 'search'
+      end
     end
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:index, :create, :destroy, :show] do
