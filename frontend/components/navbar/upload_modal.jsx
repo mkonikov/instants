@@ -12,6 +12,7 @@ class UploadModal extends React.Component {
       caption: "",
       imageFile: null,
       imageURL: null,
+      submitting: false,
     };
     this.onDrop = this.onDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +27,7 @@ class UploadModal extends React.Component {
 
   handleSubmit(e) {
     this.props.toggleLoading();
+    this.setState({submitting: true,});
     e.preventDefault();
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
@@ -35,6 +37,9 @@ class UploadModal extends React.Component {
         this.props.toggleLoading();
         this.closeModal();
         this.props.history.push(`/${this.props.currentUser}`);
+      }, () => {
+        this.props.toggleLoading();
+        this.setState({submitting: false,});
       });
   }
 
@@ -49,6 +54,21 @@ class UploadModal extends React.Component {
     if (acceptedImage.length > 0) {
       this.setState({imageFile: acceptedImage[0],
         imageURL: acceptedImage[0].preview});
+    }
+  }
+
+  renderSubmitButton() {
+    if (this.state.submitting) {
+      return (
+        <button type="submit" disabled>Sharing
+          <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+        </button>
+      );
+    } else {
+      return (
+        <button type="submit">Share
+        </button>
+      );
     }
   }
 
@@ -87,7 +107,7 @@ class UploadModal extends React.Component {
                 value={this.state.caption}></textarea>
               </div>
               <div className="form-buttons">
-              <input type="submit" value="Share" />
+              {this.renderSubmitButton()}
               <a onClick={this.closeModal}>
                 Cancel</a>
               </div>

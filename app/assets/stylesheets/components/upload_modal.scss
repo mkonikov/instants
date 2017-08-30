@@ -1,7 +1,6 @@
 #upload_modal {
   display: none;
 
-
   div#form-image {
     background: #b7a9a9;
     color: white;
@@ -13,12 +12,9 @@
       display: block;
     }
 
-
   }
 
-
-
-  input[type='submit'] {
+  button[type='submit'] {
     background: #3897f0;
     color: white;
     font-weight: 500;
@@ -29,6 +25,20 @@
     font-size: 20px;
     border-radius: 3px;
   }
+  button:disabled,
+  button[disabled] {
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    padding-right: 60px;
+  }
+
+  button .fa {
+    position: static;
+    font-size: 16px;
+    margin-left: 15px;
+  }
+
   #form-main {
     padding: 50px;
     display: flex;
@@ -65,12 +75,7 @@
       }
     }
 
-
   }
-
-
-
-
 
 
   .form-container {
