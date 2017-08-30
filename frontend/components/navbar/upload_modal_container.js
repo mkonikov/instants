@@ -14,7 +14,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   uploadPost: (post) => dispatch(uploadPost(post)),
   toggleUpload: () => dispatch(toggleUpload()),
-  toggleLoading: () => dispatch(toggleLoading()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadModal);

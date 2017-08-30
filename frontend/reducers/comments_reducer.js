@@ -1,6 +1,6 @@
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
 import { RECEIVE_FEED,
-  RECEIVE_COMPLETE_POST } from '../actions/post_actions';
+  RECEIVE_COMPLETE_POST, REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_COMMENT,
   REMOVE_COMMENT } from '../actions/comment_actions';
 
@@ -23,6 +23,16 @@ const commentsReducer = (state = {}, action) => {
 
     case RECEIVE_COMPLETE_POST:
       newState = Object.assign({}, state, action.payload.comments);
+      return newState;
+
+    case REMOVE_POST:
+      newState = Object.assign({}, state);
+      if (action.payload.comments) {
+        const deletedCommentIds = Object.keys(action.payload.comments);
+        deletedCommentIds.forEach((commentId) => {
+          delete newState[commentId];
+        });
+      }
       return newState;
 
     case REMOVE_COMMENT:

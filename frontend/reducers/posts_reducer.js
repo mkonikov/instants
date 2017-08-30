@@ -1,5 +1,5 @@
-import { RECEIVE_CURRENT_USER_POST,
-  RECEIVE_COMPLETE_POST, RECEIVE_FEED } from '../actions/post_actions';
+import { RECEIVE_CURRENT_USER_POST,  RECEIVE_COMPLETE_POST,
+  RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_COMPLETE_PROFILE } from '../actions/profile_actions';
 import { RECEIVE_NEW_LIKE, REMOVE_LIKE } from '../actions/like_actions';
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/comment_actions';
@@ -57,6 +57,11 @@ const postsReducer = (state = {}, action) => {
 
     case RECEIVE_COMPLETE_PROFILE:
       newState = merge({}, state, action.payload.posts);
+      return newState;
+
+    case REMOVE_POST:
+      newState = merge({}, state);
+      delete newState[action.payload.post.id];
       return newState;
 
     case RECEIVE_FEED:

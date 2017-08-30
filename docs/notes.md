@@ -9,6 +9,8 @@ q/ Meagan - ordering comments
 
 q/ liking too quickly causes error
 
+* UPLOAD MODAL SHOULDNT RENDER WHEN NOT TOGGLED
+
 * Document Title Changes
 * go to next photo in detail view (with keyboard and/or mouse)
 * support video
@@ -18,8 +20,4 @@ q/ liking too quickly causes error
 * ensure enter works on forms to submit
 * like post rapidly
 * favicon
-
-
-//USE eager loading detected
-  Comment => [:author]
-  Add to your finder: :includes => [:author]
+* loading different elements based on state vs. adding classname or disabled (.e.g upload modal)

@@ -1,6 +1,6 @@
 import { TOGGLE_UPLOAD,
   RECEIVE_ERRORS, TOGGLE_LOADING } from '../actions/ui_actions';
-import { RECEIVE_FEED } from '../actions/post_actions';
+import { RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
 import { merge, values } from 'lodash';
 
 const initialState = {
@@ -31,6 +31,14 @@ const uiReducer = (state = initialState, action) => {
     case RECEIVE_FEED:
       const feedOrd = {feedOrd: action.payload.feedOrd};
       newState = Object.assign({}, state, feedOrd);
+      return newState;
+
+    case REMOVE_POST:
+      newState = Object.assign({}, state);
+      newState.feedOrd = newState.feedOrd || [];
+      newState.feedOrd = newState.feedOrd.filter((id) => {
+        return id !== action.payload.post.id;
+      });
       return newState;
 
     default:

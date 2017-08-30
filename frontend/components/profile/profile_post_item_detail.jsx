@@ -10,6 +10,7 @@ class ProfilePostItemDetail extends React.Component {
     super(props);
 
     this.closeModal = this.closeModal.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,11 @@ class ProfilePostItemDetail extends React.Component {
       .then(this.props.toggleLoading);
     document.body.classList.add('modal-open');
 
+  }
+
+  delete() {
+    this.props.deletePost();
+    this.closeModal();
   }
 
   componentWillUnmount() {
@@ -57,12 +63,21 @@ class ProfilePostItemDetail extends React.Component {
     }
   }
 
+  renderDelete() {
+    if (this.props.self) {
+      return (<button type="button" onClick={this.delete}>
+        <i className="fa fa-trash-o" aria-hidden="true"></i>
+      </button>)
+    }
+  }
+
 
   render() {
     if (!this.props.post) return null;
 
     const post = this.props.post;
     const date = this.renderDate();
+
     const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
     const likeButton = this.renderLikeButton();
     const commentButton = (
@@ -106,6 +121,7 @@ class ProfilePostItemDetail extends React.Component {
               <div className="icons">
                 {likeButton}
                 {commentButton}
+                {this.renderDelete()}
               </div>
               <div className="like-count">
                 {likes}

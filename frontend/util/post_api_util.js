@@ -15,6 +15,13 @@ export const fetchCompletePost = (postId) => {
   });
 };
 
+export const deletePost = (postId) => {
+  return $.ajax({
+    method: 'delete',
+    url: `/api/posts/${postId}`,
+  });
+};
+
 export const fetchFeed = () => {
   return $.ajax({
     method: 'get',
