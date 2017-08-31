@@ -4,7 +4,7 @@
     margin-bottom: 50px;
   }
   button {
-    padding: 0;
+    padding: 0 24px;
     cursor: pointer;
     line-height: 26px;
     font-weight: 600;
@@ -78,6 +78,10 @@
 .post-item {
   margin-bottom: 30px;
   position: relative;
+
+  img {
+    display: block;
+  }
 
 }
 .post-item-hover {

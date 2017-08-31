@@ -1,26 +1,36 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
+import NewUserFeed from './new_user_feed';
 
 class PostsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { newUser: false, };
+  }
 
   componentDidMount() {
     this.props.toggleLoading();
     this.props.fetchFeed()
-    .then(this.props.toggleLoading);
+    .then(() => {
+      const newUser = (this.props.feed.length < 1) ? true : false;
+      this.setState({newUser});
+      this.props.toggleLoading();
+    });
   }
 
-  renderNoFollows() {
-    return (
-      <div>
-        Welcome to Instants!
-        Follow accounts to see photos in your feed.
-      </div>
-    );
-  }
 
   render() {
 
     if (!this.props.feed) return null;
+
+    if (this.state.newUser) {
+      return (
+        <div id="feed">
+          <NewUserFeed />
+        </div>
+      )
+    }
 
     const posts = this.props.feed.map((post) => {
       return (<PostIndexItem

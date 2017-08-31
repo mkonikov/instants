@@ -23,8 +23,7 @@ class Api::UsersController < ApplicationController
   def show
     if params[:username]
       @user = User
-        .includes(:followees, :followers, :posts, posts: [:author, :likes])
-        .order("posts.created_at DESC")
+        .includes(:followees, :followers, :posts, posts: [:author, :likes, comments: [:author]])
         .find_by(username: params[:username])
 
       @posts = @user.posts
@@ -61,6 +60,16 @@ class Api::UsersController < ApplicationController
   end
 
   def search
+    if params[:suggestions] == "new_user"
+      @users = User
+      .joins(:follower_followings)
+      .group(:id)
+      .order("COUNT(users.id) DESC")
+      .limit(10)
+
+      return render :search
+    end
+
     query = params[:user].downcase
     @users = User
       .where("(lower(username) LIKE :query) OR (lower(name) LIKE :query)", query: "#{query}%")

@@ -5,6 +5,8 @@ Paperclip::AdapterRegistry::NoHandlerError Exception: No handler found for "null
 
 seed more users
 
+q/ set state in the feed checking for newusers is relying on setting state which can be async. is that fine?
+
 q/ merge and close git branches
 
 * Document Title Changes
@@ -17,3 +19,7 @@ q/ merge and close git branches
 * Currently storing avatar with posts. Normalize state
 
 Profile Container extensive if logic.
+
+
+
+BUG? When using raw sql order, wrong follower count. (we just resorted to using scope)

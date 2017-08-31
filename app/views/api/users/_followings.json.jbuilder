@@ -1,7 +1,7 @@
 followerUsernames = []
 followeeUsernames = []
 
-followers.each do |follower|
+followers.to_a.each do |follower|
   followerUsernames << follower.username
 end
 

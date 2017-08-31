@@ -1,6 +1,20 @@
 #feed {
   width: 600px;
   margin: auto;
+
+  #welcome {
+    text-align: center;
+    padding: 18px 25px;
+    margin-bottom: 20px;
+    color: $gray;
+    font-weight: 400;
+    line-height: 1.5;
+
+    strong {
+      color: black;
+      font-weight: 600;
+    }
+  }
 }
 
 .feed-post {

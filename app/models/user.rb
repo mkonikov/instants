@@ -53,6 +53,7 @@ class User < ApplicationRecord
     source: :followee
 
   has_many :posts,
+    -> { order(:created_at => :desc) },
     foreign_key: :author_id,
     dependent: :destroy
 
