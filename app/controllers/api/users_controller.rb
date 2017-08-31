@@ -48,7 +48,10 @@ class Api::UsersController < ApplicationController
   end
 
   def unfollow
-    @following = Following.find_by(followee_id: params[:id])
+    @following = Following.find_by(
+      followee_id: params[:id],
+      follower_id: current_user.id
+    )
 
     if @following.destroy
       render json: {followee: @following.followee.username,
