@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 const LoadingBar = ({ loading }) => {
 
-  console.log(`Loading status in props: ${loading}`);
   let loadingRender;
 
   if (loading) {

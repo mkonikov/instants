@@ -20,6 +20,9 @@ class Api::PostsController < ApplicationController
   end
 
   def create
+    if (params[:post][:image] == "null")
+      return render json: ["Please select an image to share."], status: 422
+    end
     @post = Post.create(post_params)
     @post.author_id = current_user.id
     @post_author = current_user

@@ -1,9 +1,8 @@
 import {
   RECEIVE_LOGIN_ERROR,
   RECEIVE_SIGNUP_ERROR,
-  RECEIVE_USER,
-  CLEAR_ERRORS } from '../actions/session_actions';
-import { RECEIVE_UPLOAD_ERROR } from '../actions/post_actions';
+  RECEIVE_USER } from '../actions/session_actions';
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
 
 const initialState = {};
 
@@ -21,8 +20,9 @@ const errorsReducer = (state = initialState, action) => {
     case RECEIVE_USER:
       return initialState;
 
-    case RECEIVE_UPLOAD_ERROR:
-      newState = Object.assign({}, state, {upload: action.payload});
+    case RECEIVE_ERRORS:
+      const errors = action.errors;
+      newState = Object.assign({}, state, {generalErrors: errors});
       return newState;
 
     case CLEAR_ERRORS:

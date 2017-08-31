@@ -3,7 +3,6 @@ import * as SessionAPIUtil from '../util/session_api_util';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_LOGIN_ERROR = "RECEIVE_LOGIN_ERROR";
 export const RECEIVE_SIGNUP_ERROR = "RECEIVE_SIGNUP_ERROR";
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const login = user => dispatch => {
   return SessionAPIUtil.login(user)
@@ -50,9 +49,4 @@ export const receiveLoginError = (error) => ({
 export const receiveSignupError = (error) => ({
   type: RECEIVE_SIGNUP_ERROR,
   payload: error,
-});
-
-
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
 });

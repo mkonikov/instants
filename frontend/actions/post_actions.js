@@ -1,8 +1,8 @@
 import * as PostAPIUtil from '../util/post_api_util';
+import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER_POST = "RECEIVE_CURRENT_USER_POST";
 export const RECEIVE_COMPLETE_POST = "RECEIVE_COMPLETE_POST";
-export const RECEIVE_UPLOAD_ERROR = "RECEIVE_UPLOAD_ERROR";
 export const RECEIVE_FEED = "RECEIVE_FEED";
 export const REMOVE_POST = "REMOVE_POST";
 
@@ -13,7 +13,7 @@ export const uploadPost = post => dispatch => {
         dispatch(receiveCurrentUserPost(post));
       },
       (error) => {
-        dispatch(receiveUploadError(error.responseJSON));
+        dispatch(receiveErrors(error.responseJSON));
       }
     );
 };
@@ -51,11 +51,6 @@ export const receiveCompletePost = (post) => ({
 export const receiveCurrentUserPost = (post) => ({
   type: RECEIVE_CURRENT_USER_POST,
   payload: post,
-});
-
-export const receiveUploadError = (error) => ({
-  type: RECEIVE_UPLOAD_ERROR,
-  payload: error,
 });
 
 export const receiveFeed = (feed) => ({

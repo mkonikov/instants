@@ -1,5 +1,4 @@
-import { TOGGLE_UPLOAD,
-  RECEIVE_ERRORS, TOGGLE_LOADING } from '../actions/ui_actions';
+import { TOGGLE_UPLOAD, TOGGLE_LOADING } from '../actions/ui_actions';
 import { RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_SEARCH_USERS_RESULT,
   CLEAR_SEARCH_USERS_RESULT } from '../actions/search_actions';
@@ -34,11 +33,6 @@ const uiReducer = (state = initialState, action) => {
     case CLEAR_SEARCH_USERS_RESULT:
       newState = Object.assign({}, state);
       newState.usersSearchResult = [];
-      return newState;
-
-    case RECEIVE_ERRORS:
-      const errors = action.errors;
-      newState = Object.assign({}, state, {errors});
       return newState;
 
     case RECEIVE_FEED:

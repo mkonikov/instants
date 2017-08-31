@@ -7,7 +7,16 @@ Profile Container extensive if logic.
 q/ Currently storing avatar with posts. How bad for normalizing state?
 q/ Meagan - ordering comments
 
+q/ loading bar...api send back where its holding?
+
+q/ paperclip error when no image attached:
+Paperclip::AdapterRegistry::NoHandlerError Exception: No handler found for "null"
+
+seed more users
+
 * merge and close git branches
+
+slight padding below image in feed
 
 q/ liking too quickly causes error
 * Document Title Changes

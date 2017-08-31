@@ -27,14 +27,15 @@ class UploadModal extends React.Component {
     if (!this.state.submitting) {
       this.setState({caption: "", imageFile: null,
         imageURL: null, submitting: false,});
-        document.documentElement.classList.remove('modal-open');
-        this.props.toggleUpload();
+      document.documentElement.classList.remove('modal-open');
+      this.props.clearErrors();
+      this.props.toggleUpload();
     }
   }
 
   handleSubmit(e) {
-    this.setState({submitting: true,});
     e.preventDefault();
+    this.setState({submitting: true,});
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
     formData.append("post[image]", this.state.imageFile);
@@ -43,6 +44,7 @@ class UploadModal extends React.Component {
         this.setState({submitting: false,}, this.closeModal);
         this.props.history.push(`/${this.props.currentUser}`);
       }, () => {
+        this.setState({submitting: false,});
       });
   }
 
@@ -107,6 +109,9 @@ class UploadModal extends React.Component {
               <textarea onChange={this.handleInput("caption")}
                 placeholder="Write a caption..."
                 value={this.state.caption}></textarea>
+              </div>
+              <div className="general-errors">
+                {this.props.errors}
               </div>
               <div className="form-buttons">
               {this.renderSubmitButton()}
