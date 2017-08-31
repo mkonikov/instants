@@ -1,4 +1,5 @@
 import React from 'react';
+import NewUserFollowSuggestions from './new_user_follow_suggestions';
 
 class NewUserFeed extends React.Component {
 
@@ -19,6 +20,7 @@ class NewUserFeed extends React.Component {
     return(
       <div>
         {this.renderWelcome()}
+        <NewUserFollowSuggestions />
       </div>
     );
   }

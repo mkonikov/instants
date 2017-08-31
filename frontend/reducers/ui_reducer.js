@@ -1,7 +1,7 @@
 import { TOGGLE_UPLOAD, TOGGLE_LOADING } from '../actions/ui_actions';
 import { RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_SEARCH_USERS_RESULT,  CLEAR_SEARCH_USERS_RESULT,
-  RECEIVE_NEW_USER_SUGGESTIONS } from '../actions/search_actions';
+  RECEIVE_NEW_USER_SUGGESTIONS, CLEAR_USER_SUGGESTIONS } from '../actions/search_actions';
 import { merge, values } from 'lodash';
 
 const initialState = {
@@ -33,6 +33,11 @@ const uiReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.usersSearchResult = [];
       action.users.forEach(user => newState.usersSearchResult.push(user.username));
+      return newState;
+
+    case CLEAR_USER_SUGGESTIONS:
+      newState = Object.assign({}, state);
+      newState.userSuggestions = [];
       return newState;
 
     case CLEAR_SEARCH_USERS_RESULT:
