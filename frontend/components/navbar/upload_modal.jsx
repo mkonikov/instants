@@ -38,7 +38,7 @@ class UploadModal extends React.Component {
     this.setState({submitting: true,});
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
-    formData.append("post[image]", this.state.imageFile);
+    if (this.state.imageFile) formData.append("post[image]", this.state.imageFile);
     this.props.uploadPost(formData)
       .then(() => {
         this.setState({submitting: false,}, this.closeModal);

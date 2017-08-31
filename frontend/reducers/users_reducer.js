@@ -5,7 +5,8 @@ import { RECEIVE_CURRENT_USER_POST,
   REMOVE_POST } from '../actions/post_actions';
 import { RECEIVE_NEW_FOLLOW,
   REMOVE_FOLLOW } from '../actions/follow_actions';
-import { RECEIVE_SEARCH_USERS_RESULT } from '../actions/search_actions';
+import { RECEIVE_SEARCH_USERS_RESULT,
+  RECEIVE_NEW_USER_SUGGESTIONS } from '../actions/search_actions';
 
 import { merge, values } from 'lodash';
 
@@ -14,6 +15,7 @@ const usersReducer = (state = {}, action) => {
   let currentUser;
   let updatedUser;
   let followee;
+  let existingUser;
 
   Object.freeze(state);
 
@@ -26,8 +28,13 @@ const usersReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_SEARCH_USERS_RESULT:
+    case RECEIVE_NEW_USER_SUGGESTIONS:
       newState = merge({}, state);
-      action.users.forEach((user) => newState[user.username] = user);
+      action.users.forEach((user) => {
+        existingUser = newState[user.username] || {};
+        updatedUser = merge({}, existingUser, user);
+        newState[user.username] = updatedUser;
+      });
       return newState;
 
     case REMOVE_POST:

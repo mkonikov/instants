@@ -6,13 +6,11 @@ import ProfileContainer from './profile/profile_container';
 import PostsIndexContainer from './feed/posts_index_container';
 import { Route, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../util/route_util';
-import DocumentTitle from 'react-document-title';
 
 
 
 
 const App = (props) => (
-    <DocumentTitle title={`Instants`}>
     <div>
       <AuthRoute path="/login" component={AuthInterstitial} />
       <AuthRoute path="/signup" component={AuthInterstitial} />
@@ -26,7 +24,6 @@ const App = (props) => (
         </Switch>
       </div>
     </div>
-  </DocumentTitle>
   )
 
 

@@ -36,7 +36,6 @@
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "react": "^15.6.1",
-    "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",
     "react-dropzone": "^4.1.0",
     "react-moment": "^0.6.4",

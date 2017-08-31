@@ -1,7 +1,7 @@
 import { TOGGLE_UPLOAD, TOGGLE_LOADING } from '../actions/ui_actions';
 import { RECEIVE_FEED, REMOVE_POST } from '../actions/post_actions';
-import { RECEIVE_SEARCH_USERS_RESULT,
-  CLEAR_SEARCH_USERS_RESULT } from '../actions/search_actions';
+import { RECEIVE_SEARCH_USERS_RESULT,  CLEAR_SEARCH_USERS_RESULT,
+  RECEIVE_NEW_USER_SUGGESTIONS } from '../actions/search_actions';
 import { merge, values } from 'lodash';
 
 const initialState = {
@@ -17,6 +17,11 @@ const uiReducer = (state = initialState, action) => {
     case TOGGLE_UPLOAD:
       newState = Object.assign({}, state);
       newState.uploadModal = !state.uploadModal;
+      return newState;
+
+    case RECEIVE_NEW_USER_SUGGESTIONS:
+      newState = Object.assign({}, state, { userSuggestions: [] });
+      action.users.forEach(user => newState.userSuggestions.push(user.username));
       return newState;
 
     case TOGGLE_LOADING:
