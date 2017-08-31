@@ -9,6 +9,8 @@ class ProfilePostItemDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { submittingLike: false, };
+
     this.closeModal = this.closeModal.bind(this);
     this.delete = this.delete.bind(this);
   }
@@ -49,18 +51,30 @@ class ProfilePostItemDetail extends React.Component {
 
   }
 
-  renderLikeButton() {
-    if (this.props.post.hasLiked) {
-      return(
-        <i className="fa fa-heart liked"
-          aria-hidden="true" onClick={this.props.unlikePost}></i>
-);
+  likeButtonCallback() {
+    if (this.state.submittingLike) {
+      return null;
+    } else if (this.props.post.hasLiked) {
+      return (
+        this.setState({submittingLike: true},
+        this.props.unlikePost
+          .then(setState({submittingLike: false,})))
+      )
     } else {
-      return(
-        <i className="fa fa-heart-o unliked"
-          aria-hidden="true"  onClick={this.props.likePost}></i>
-      );
+        return (
+          this.setState({submittingLike: true},
+          this.props.likePost
+            .then(setState({submittingLike: false,})))
+          )
     }
+  }
+
+  renderLikeButton() {
+    const likeClassName = (this.props.post.hasLiked) ? "fa fa-heart liked" : "fa fa-heart-o unliked";
+    return(
+      <i className={likeClassName} aria-hidden="true"
+        onClick={this.likeButtonCallback}></i>
+    );
   }
 
   renderDelete() {
