@@ -26,8 +26,11 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 8, allow_nil: true }
 
+  before_destroy :delete_avatar
+
+
   has_attached_file :avatar, default_url: "default_avatar.svg",
-    styles: { thumb: "150x150#" }
+    styles: { original: "150x150#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
@@ -91,6 +94,12 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  private
+
+  def delete_avatar
+    self.avatar = nil
   end
 
 end

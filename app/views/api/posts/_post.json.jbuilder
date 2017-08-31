@@ -8,7 +8,7 @@ json.authorId post.author_id
 json.authorName post.author.username
 json.likeCount post.likes.size
 json.hasLiked hasLiked
-json.imageUrl post.image.url(:square)
+json.imageUrl post.image.url(:original)
 json.thumbUrl post.image.url(:thumb)
-json.authorAvatar image_path(post.author.avatar.url(:thumb))
+json.authorAvatar image_path(post.author.avatar.url(:original))
 json.createdAt post.created_at

@@ -17,7 +17,9 @@ class Post < ApplicationRecord
 
   validates :author, :image, presence: true
 
-  has_attached_file :image, styles: { thumb: "293x293#", square: "600x600#" }
+  before_destroy :delete_attachments
+
+  has_attached_file :image, styles: { thumb: "293x293#", original: "600x600#" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,
@@ -30,5 +32,11 @@ class Post < ApplicationRecord
   has_many :comments,
     -> { order(:created_at => :asc) },
     dependent: :destroy
+
+  private
+
+  def delete_attachments
+    self.image = nil
+  end
 
 end

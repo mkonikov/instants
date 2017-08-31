@@ -17,8 +17,13 @@ class SearchForm extends React.Component {
   }
 
   handleInput(e) {
-    this.setState({query: e.currentTarget.value},
-    () => this.props.searchUsers(this.state.query));
+    if (e.currentTarget.value.length > 0) {
+      this.setState({query: e.currentTarget.value},
+        () => this.props.searchUsers(this.state.query));
+    } else {
+      this.setState({query: e.currentTarget.value});
+      this.props.clearSearch();
+    }
   }
 
 
