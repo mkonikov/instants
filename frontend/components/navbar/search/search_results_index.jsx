@@ -4,6 +4,7 @@ import SearchResultsIndexItem from './search_results_index_item';
 const SearchResultsIndex = ({ userResults }) => {
 
   if (!userResults) return null;
+  if (userResults.length < 1) return null;
 
   const users = userResults.map((user) => {
     return(

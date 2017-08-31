@@ -14,18 +14,18 @@ class SearchForm extends React.Component {
 
   search(e) {
     e.preventDefault();
-    this.props.searchUsers(this.state.query);
   }
 
   handleInput(e) {
-    this.setState({query: e.currentTarget.value});
+    this.setState({query: e.currentTarget.value},
+    () => this.props.searchUsers(this.state.query));
   }
 
 
   render() {
     return(
       <form onSubmit={this.search}>
-        <input onChange={this.handleInput}
+        <input onBlur={this.props.clearSearch} onChange={this.handleInput}
           placeholder="Search" value={this.state.query} />
       </form>
     );

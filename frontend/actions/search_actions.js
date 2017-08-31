@@ -37,9 +37,8 @@ export const receiveSearchUsersResult = (users) => ({
   users,
 });
 
-export const clearSearchUsersResult = (users) => ({
+export const clearSearchUsersResult = () => ({
   type: CLEAR_SEARCH_USERS_RESULT,
-  users,
 });
 
 
