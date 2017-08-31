@@ -8,19 +8,38 @@ import CommentForm from '../feed/comment_form';
 
 
 class PostIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { submittingLike: false, };
+    this.likeButtonCallback = this.likeButtonCallback.bind(this);
+
+  }
+
+  likeButtonCallback() {
+    if (this.state.submittingLike) {
+      return null;
+    } else if (this.props.post.hasLiked) {
+        return (
+          this.setState({submittingLike: true},
+          () => this.props.unlikePost()
+            .then(this.setState({submittingLike: false,})))
+        );
+    } else {
+        return (
+          this.setState({submittingLike: true},
+          () => this.props.likePost()
+            .then(this.setState({submittingLike: false,})))
+          );
+    }
+  }
 
   renderLikeButton() {
-    if (this.props.post.hasLiked) {
-      return(
-        <i className="fa fa-heart liked"
-          aria-hidden="true" onClick={this.props.unlikePost}></i>
-);
-    } else {
-      return(
-        <i className="fa fa-heart-o unliked"
-          aria-hidden="true"  onClick={this.props.likePost}></i>
-      );
-    }
+    const likeClassName = (this.props.post.hasLiked) ? "fa fa-heart liked" : "fa fa-heart-o unliked";
+    return(
+      <i className={likeClassName} aria-hidden="true"
+        onClick={this.likeButtonCallback}></i>
+    );
   }
 
   render() {
@@ -53,8 +72,10 @@ class PostIndexItem extends React.Component {
 
 
           <div className="feed-icons icons">
-            {likeButton}
-            {commentButton}
+            <div>
+              {likeButton}
+              {commentButton}
+            </div>
           </div>
 
           <div className="like-count">

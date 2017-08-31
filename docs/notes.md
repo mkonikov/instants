@@ -18,7 +18,6 @@ seed more users
 
 slight padding below image in feed
 
-q/ liking too quickly causes error
 * Document Title Changes
 * go to next photo in detail view (with keyboard and/or mouse)
 * support video

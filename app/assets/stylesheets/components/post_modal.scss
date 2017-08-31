@@ -30,25 +30,27 @@
     position: relative;
     display: inline-block;
     width: 40px;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 100%;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
 }
 
-.post-details #post-author-details .avatar:before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 100%;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-}
 
 #post-author-details {
   border-bottom: 1px solid $light-gray;
   display: flex;
   align-items: center;
   padding-bottom: 20px;
+  margin-right: 25px;
 
   a {
     text-decoration: none;
@@ -95,9 +97,12 @@
 .like-comments {
   border-top: 1px solid $light-gray;
   padding-top: 10px;
+  margin-right: 25px;
 
   .icons {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .like-count {

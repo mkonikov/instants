@@ -11,6 +11,7 @@ class ProfilePostItemDetail extends React.Component {
 
     this.state = { submittingLike: false, };
 
+    this.likeButtonCallback = this.likeButtonCallback.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.delete = this.delete.bind(this);
   }
@@ -56,16 +57,16 @@ class ProfilePostItemDetail extends React.Component {
       return null;
     } else if (this.props.post.hasLiked) {
       return (
-        this.setState({submittingLike: true},
-        this.props.unlikePost
-          .then(setState({submittingLike: false,})))
-      )
+          this.setState({submittingLike: true},
+          () => this.props.unlikePost()
+            .then(this.setState({submittingLike: false,})))
+        );
     } else {
         return (
           this.setState({submittingLike: true},
-          this.props.likePost
-            .then(setState({submittingLike: false,})))
-          )
+          () => this.props.likePost()
+            .then(this.setState({submittingLike: false,})))
+          );
     }
   }
 
@@ -133,8 +134,10 @@ class ProfilePostItemDetail extends React.Component {
               </div>
             <div className="like-comments">
               <div className="icons">
-                {likeButton}
-                {commentButton}
+                <div>
+                  {likeButton}
+                  {commentButton}
+                </div>
                 {this.renderDelete()}
               </div>
               <div className="like-count">
