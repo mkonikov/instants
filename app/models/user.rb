@@ -37,6 +37,16 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :authored_messages,
+    foreign_key: :author_id,
+    class_name: :Message,
+    dependent: :destroy
+
+  has_many :received_messages,
+    foreign_key: :recipient_id,
+    class_name: :Message,
+    dependent: :destroy
+
   has_many :follower_followings,
     foreign_key: :followee_id,
     class_name: :Following,
