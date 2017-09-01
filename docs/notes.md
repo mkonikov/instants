@@ -1,13 +1,6 @@
-q/ loading bar...api send back where its holding?
-
-seed more users
-
-
 FIX SEARCH - ONBLUR vs ONCLICK
 DEBOUNCE
 
-* widen loading bar
-* Loading animations widen
 * Document Title Changes
 * disable all buttons during submission
 * go to next photo in detail view (with keyboard and/or mouse)

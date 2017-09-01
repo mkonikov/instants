@@ -50,7 +50,10 @@ class Api::PostsController < ApplicationController
   end
 
   def unlike
-    @like = Like.find_by(post_id: params[:id])
+    @like = Like.find_by(
+      post_id: params[:id],
+      user_id: current_user.id
+    )
 
     if @like.destroy
       render json: @like.post_id, status: 200
