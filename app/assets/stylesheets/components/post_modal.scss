@@ -127,3 +127,11 @@
 #profile .like-comments button, .like-comments button {
   padding: 0;
 }
+
+input#keyboard-nav {
+  width: 0px;
+  height: 0px;
+  padding: 0px;
+  position: absolute;
+  left: -99999em;
+}

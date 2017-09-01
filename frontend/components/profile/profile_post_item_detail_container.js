@@ -8,11 +8,21 @@ const mapStateToProps = (state, ownProps) => {
   const post = state.entities.posts[ownProps.match.params.postId];
   const author = (post) ? state.entities.users[post.authorName] : "";
   const currentUser = state.session.currentUser;
+  let currentPostPosinFeedArray;
+  let previousPost;
+  let nextPost;
+  if (author && author.profileFeed) {
+    currentPostPosinFeedArray = author.profileFeed.findIndex((id) => id === post.id);
+    previousPost = author.profileFeed[currentPostPosinFeedArray-1];
+    nextPost = author.profileFeed[currentPostPosinFeedArray+1];
+  }
 
   return ({
     post: post,
     author: author,
     self: Boolean(author.username === currentUser),
+    previousPost,
+    nextPost,
   });
 };
 

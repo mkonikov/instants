@@ -29,6 +29,7 @@ class CommentForm extends React.Component {
   }
 
   handleInput(e) {
+    e.stopPropagation();
     this.setState({body: e.currentTarget.value});
   }
 
@@ -40,6 +41,7 @@ class CommentForm extends React.Component {
         <input id={`comment-field-${this.props.postId}`}
           value={this.state.body}
           onChange={this.handleInput}
+          onKeyPress={(e) => e.stopPropagation()}
           placeholder="Add a comment..." />
       </form>
     );

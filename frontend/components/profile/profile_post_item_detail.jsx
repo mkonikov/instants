@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
-import { withRouter } from 'react-router-dom';
 import CommentsIndexContainer from '../feed/comments_index_container';
 import CommentForm from '../feed/comment_form';
 import LikeButton from '../buttons/like';
@@ -14,6 +13,17 @@ class ProfilePostItemDetail extends React.Component {
 
     this.closeModal = this.closeModal.bind(this);
     this.delete = this.delete.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleKeyPress(e) {
+    let author = this.props.post.authorName;
+
+    if (e.key === "ArrowRight" && this.props.nextPost) {
+      this.props.history.push(`/${author}/posts/${this.props.nextPost}`);
+    } else if (e.key === "ArrowLeft" && this.props.previousPost) {
+      this.props.history.push(`/${author}/posts/${this.props.previousPost}`);
+    }
   }
 
   componentDidMount() {
@@ -21,6 +31,10 @@ class ProfilePostItemDetail extends React.Component {
     this.props.fetchCompletePost()
       .then(this.props.toggleLoading);
     document.documentElement.classList.add('modal-open');
+    // window.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillReceiveProps() {
 
   }
 
@@ -60,6 +74,12 @@ class ProfilePostItemDetail extends React.Component {
     }
   }
 
+  handleBlur(e) {
+    if (!e.relatedTarget || e.relatedTarget.form.classList.value !== "comment-form") {
+      e.currentTarget.focus();
+    }
+  }
+
 
   render() {
     if (!this.props.post) return null;
@@ -76,7 +96,9 @@ class ProfilePostItemDetail extends React.Component {
     );
 
     return (
-      <div id="post-modal" className="modal" onClick={this.closeModal}>
+      <div id="post-modal"
+        className="modal"
+        onClick={this.closeModal}>
         <i className="fa fa-times" aria-hidden="true"></i>
         <div id="post-container" onClick={(e) => e.stopPropagation()}>
           <div className="image">
@@ -107,6 +129,12 @@ class ProfilePostItemDetail extends React.Component {
               </div>
             <div className="like-comments">
               <div className="icons">
+                <input type="text"
+                  id="keyboard-nav"
+                  onKeyDown={this.handleKeyPress}
+                  onBlur={this.handleBlur}
+                  autoFocus
+                   />
                 <div>
                   <LikeButton postId={post.id} />
                   {commentButton}

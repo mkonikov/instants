@@ -6,7 +6,8 @@
 * lazy loading / infinite scroll
 * Currently storing avatar with posts. Normalize state
 * judicious in fetching (e.g. edit profile doesn't need to fetch posts)
-* style comment field in feed to be wider
+* is full post details being fetched even before opening modal?
+* fix onblur for comment field for keyboard navigation
 
 Profile Container extensive if logic.
 
