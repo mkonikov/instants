@@ -58,6 +58,8 @@ Additionally if there are no posts a message will render either encouraging the 
 
 ### Search
 
+![search](readme_gifs/search.gif)
+
 A user search field is displayed in the navbar allowing visitors to search for users with a simple query that will match all users that either their username of Full name begins with the query search term. The results will display in a rendered component that appears below the search which disappears onBlur.
 
 The search utilizes a setTimeout so that at most a search is fired every 500ms. The search component maintains state to determine if any search queries are currently enqueued.
@@ -79,6 +81,11 @@ enqueueSearch() {
 ### Post Detail with Likes and Comments
 
 Using member routes in the Rails backend, follows, likes and comments CRUD actions are directed to the Posts and Users controllers respectively.
+
+### Loading Bar
+
+A nice loading bar appears when an API call is being made and toggled off when it's returned. The appearance is styled with CSS keyframes as well as multiple setTimeouts to continuously widen the bar as time progresses. All timeouts are cleared when the React component unmounts.
+
 
 ## Future Directions for the Project
 
