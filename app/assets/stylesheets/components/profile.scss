@@ -71,6 +71,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    li {
+      &:empty {
+        width: 293px;
+        height: 0;
+      }
+    }
   }
 
 }

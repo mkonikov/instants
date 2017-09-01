@@ -1,6 +1,3 @@
-FIX SEARCH - ONBLUR vs ONCLICK
-DEBOUNCE
-
 * Document Title Changes
 * disable all buttons during submission
 * go to next photo in detail view (with keyboard and/or mouse)
