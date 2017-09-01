@@ -6,6 +6,7 @@
 * ensure enter works on forms to submit
 * lazy loading / infinite scroll
 * Currently storing avatar with posts. Normalize state
+* judicious in fetching (e.g. edit profile doesn't need to fetch posts)
 
 Profile Container extensive if logic.
 
@@ -17,3 +18,4 @@ Search, debounce with timeout
 Document title Changes
 Loading bar with settimeouts
 user suggestions for new user with top 10 most followed users
+change user info and profile avatar

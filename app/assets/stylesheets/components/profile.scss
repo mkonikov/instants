@@ -3,7 +3,7 @@
     display: flex;
     margin-bottom: 50px;
   }
-  button {
+  button, a.edit-profile {
     padding: 0 24px;
     cursor: pointer;
     line-height: 26px;
@@ -19,8 +19,11 @@
     border: 1px solid #dbdbdb;
     color: $light-black;
   }
-  button.edit-profile {
+  a.edit-profile {
     border: 1px solid #dbdbdb;
+    text-decoration: none;
+    display: inline-block;
+    color: $light-black;
   }
   .avatar > div {
     position: relative;

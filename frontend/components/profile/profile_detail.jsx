@@ -1,6 +1,8 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import FollowButton from '../buttons/follow';
+import { Link } from 'react-router-dom';
+
 
 
 class ProfileDetail extends React.Component {
@@ -14,11 +16,11 @@ class ProfileDetail extends React.Component {
   onDrop(image) {
     const formData = new FormData();
     formData.append("user[avatar]", image[0]);
-    this.props.updateProfile(formData, this.props.user.id);
+    this.props.updateProfilePic(formData, this.props.user.id);
   }
 
   renderEditButton() {
-    return (<button className="edit-profile">Edit Profile</button>);
+    return (<Link to='/accounts/edit' className="edit-profile">Edit Profile</Link>);
   }
 
   renderFriendNoPosts() {

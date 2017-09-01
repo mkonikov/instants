@@ -9,14 +9,20 @@ export const fetchCompleteProfile = username => dispatch => {
       (profile) => {
         dispatch(receiveCompleteProfile(profile));
       }
-      // (error) => {
-      //   dispatch(receive####Error(error.responseJSON));
-      // }
     );
 };
 
-export const updateProfile = (form, userId) => dispatch => {
-  return ProfileAPIUtil.updateProfile(form, userId)
+export const updateProfilePic = (form, userId) => dispatch => {
+  return ProfileAPIUtil.updateProfilePic(form, userId)
+    .then(
+      (profile) => {
+        dispatch(receiveUpdatedProfile(profile));
+      }
+    );
+};
+
+export const updateProfileDetails = (data) => dispatch => {
+  return ProfileAPIUtil.updateProfileDetails(data)
     .then(
       (profile) => {
         dispatch(receiveUpdatedProfile(profile));

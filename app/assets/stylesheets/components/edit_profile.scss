@@ -1,0 +1,94 @@
+#edit-profile {
+  border: 1px solid $light-gray;
+  display: flex;
+  background: white;
+
+  h3 {
+    font-weight: 500;
+    color: $light-black;
+    font-size: 25px;
+  }
+
+  #edit-options {
+    border-right: 1px solid $light-gray;
+    min-width: 250px;
+    h4 {
+      padding:30px;
+      font-size: 20px;
+      font-weight: 600;
+      border-left: 2px solid black;
+    }
+  }
+
+  #edit-form-section {
+    padding: 40px 0;
+    width: 100%;
+  }
+
+  img {
+    width: 38px;
+    border-radius: 100%;
+    border: 1px solid $light-gray;
+  }
+  .form-element {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &.submit {
+      margin-top: 40px;
+    }
+
+    label, figure {
+      margin: 0;
+      flex: 1;
+      margin-right: 30px;
+      text-align: right;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .input-container, h3, .instructions {
+      flex: 2;
+      margin-right: 60px;
+    }
+    .instructions {
+      font-weight: 600;
+      color: $gray;
+      margin-top: 40px;
+    }
+
+    }
+
+  input, button, textarea {
+    border: 1px solid $light-gray;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 0 7px 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-top: 6px;
+    font-weight: 300;
+    color: black;
+
+    &:focus {
+      outline: none;
+      border-color: $gray;
+    }
+  }
+  input[type='submit'] {
+    background: $blue;
+    color: white;
+    font-weight: 500;
+    border: 0;
+    margin-top: 12px;
+    line-height: 26px;
+    cursor: pointer;
+    padding: 3px 25px;
+    font-size: 16px;
+    width: auto;
+    margin: auto;
+    font-weight: 600;
+  }
+}

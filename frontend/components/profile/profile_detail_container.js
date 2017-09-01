@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ProfileDetail from './profile_detail';
 import { withRouter } from 'react-router-dom';
-import { updateProfile } from '../../actions/profile_actions';
+import { updateProfilePic } from '../../actions/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const username = ownProps.match.params.username;
@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateProfile: (form, userId) => dispatch(updateProfile(form, userId)),
+    updateProfilePic: (form, userId) => dispatch(updateProfilePic(form, userId)),
   };
 };
 
