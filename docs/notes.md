@@ -7,6 +7,7 @@
 * lazy loading / infinite scroll
 * Currently storing avatar with posts. Normalize state
 * judicious in fetching (e.g. edit profile doesn't need to fetch posts)
+* style comment field in feed to be wider
 
 Profile Container extensive if logic.
 
@@ -19,3 +20,4 @@ Document title Changes
 Loading bar with settimeouts
 user suggestions for new user with top 10 most followed users
 change user info and profile avatar
+relative dates on posts
