@@ -98,7 +98,7 @@ user9_options = {
 
 user10_options = {
   username: 'abigail',
-  name: 'Abigail Montgomeryabig',
+  name: 'Abigail Montgomery',
   email: 'abigail@gmail.com',
   bio: 'Abigail. Need I say more?',
   session_token: SecureRandom.urlsafe_base64,

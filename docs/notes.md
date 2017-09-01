@@ -2,6 +2,10 @@ q/ loading bar...api send back where its holding?
 
 seed more users
 
+
+FIX SEARCH - ONBLUR vs ONCLICK
+DEBOUNCE
+
 * widen loading bar
 * Loading animations widen
 * Document Title Changes

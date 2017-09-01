@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { searchUsers, clearSearchUsersResult } from '../../../actions/search_actions';
+import { debounce } from 'lodash';
+
 
 
 class SearchForm extends React.Component {
@@ -8,18 +10,19 @@ class SearchForm extends React.Component {
     super(props);
     this.state = {query: ""};
 
-    this.search = this.search.bind(this);
+    this.fireSearch = this.fireSearch.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
-  search(e) {
-    e.preventDefault();
+  fireSearch() {
+    this.props.searchUsers(this.state.query);
   }
+
 
   handleInput(e) {
     if (e.currentTarget.value.length > 0) {
       this.setState({query: e.currentTarget.value},
-        () => this.props.searchUsers(this.state.query));
+      this.fireSearch);
     } else {
       this.setState({query: e.currentTarget.value});
       this.props.clearSearch();
@@ -29,7 +32,7 @@ class SearchForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.search}>
+      <form onSubmit={(e) => e.preventDefault}>
         <input onBlur={this.props.clearSearch} onChange={this.handleInput}
           placeholder="Search" value={this.state.query} />
       </form>
