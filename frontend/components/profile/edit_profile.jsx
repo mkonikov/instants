@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCompleteProfile } from '../../actions/profile_actions';
 import { updateProfileDetails } from '../../actions/profile_actions';
 import { withRouter } from 'react-router-dom';
+import { clearErrors } from '../../actions/error_actions';
 
 class EditProfile extends React.Component {
 
@@ -32,11 +33,16 @@ class EditProfile extends React.Component {
           }));
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateProfileDetails(this.state)
-      .then(
-        this.props.history.push(`/${this.state.username}`)
+      .then(() => {
+        this.props.history.push(`/${this.state.username}`);
+      }
       );
   }
 
@@ -44,6 +50,16 @@ class EditProfile extends React.Component {
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
     };
+  }
+
+  renderError() {
+    if (this.props.error) {
+      return(
+        <div className="form-element">
+          <label></label><div className="errors">{this.props.error}</div>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -99,6 +115,7 @@ class EditProfile extends React.Component {
               </div>
 
             </div>
+            {this.renderError()}
 
               <div className="form-element submit">
                 <input type="submit" value="Submit" />
@@ -112,9 +129,14 @@ class EditProfile extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ errors, entities, session }) => {
+  let error;
+  if (errors.generalErrors) {
+    error = errors.generalErrors[0];
+  }
   return {
-    user: state.entities.users[state.session.currentUser],
+    user: entities.users[session.currentUser],
+    error,
   };
 };
 
@@ -122,6 +144,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchCompleteProfile: (username) => dispatch(fetchCompleteProfile(username)),
     updateProfileDetails: (data) => dispatch(updateProfileDetails(data)),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 

@@ -8,8 +8,8 @@ const ProfilePosts = (props) => {
   if (props.posts) {
     posts = props.posts.map((post) => {
       return (
-        <li>
-          <ProfilePostItem key={post.id} post={post} />
+        <li key={post.id}>
+          <ProfilePostItem post={post} />
         </li>
       );
     });
