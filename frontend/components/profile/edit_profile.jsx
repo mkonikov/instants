@@ -80,7 +80,9 @@ class EditProfile extends React.Component {
               <label htmlFor="Bio">Bio</label>
                 <div className="input-container">
 
-              <textarea id="Bio" onChange={this.handleInput("Bio")}>{this.state.Bio}</textarea>
+              <textarea id="Bio"
+                value={this.state.bio}
+                onChange={this.handleInput("bio")} />
             </div>
             </div>
             <div className="form-element">
