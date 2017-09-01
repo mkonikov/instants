@@ -9,7 +9,35 @@
   );
   background-size: 500%;
   animation: 2s linear infinite barprogress, .3s fadein;
-  width: 100%;
+
+  &.ten-percent {
+    width: 10%;
+  }
+
+  &.twenty-percent {
+    width: 20%;
+  }
+
+  &.forty-percent {
+    width: 40%;
+  }
+
+  &.sixty-percent {
+    width: 60%;
+  }
+
+  &.seventy-percent {
+    width: 70%;
+  }
+
+  &.eighty-percent {
+    width: 80%;
+  }
+
+  &.ninety-percent {
+    width: 90%;
+  }
+
 }
 
 @keyframes barprogress {
