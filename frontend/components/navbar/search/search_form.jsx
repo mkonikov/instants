@@ -7,15 +7,31 @@ import { withRouter } from 'react-router-dom';
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {query: ""};
+    this.state = {query: "", enqueued: false,};
 
     this.fireSearch = this.fireSearch.bind(this);
+    this.enqueueSearch = this.enqueueSearch.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
   }
 
   fireSearch() {
-    this.props.searchUsers(this.state.query);
+    if (this.state.query.length > 0) {
+      this.props.searchUsers(this.state.query);
+    }
+    this.setState({enqueued: false});
+  }
+
+  enqueueSearch() {
+    if (!this.state.enqueued) {
+      this.setState({enqueued: true},
+        () => {
+          this.enqueuedSearchId = window.setTimeout(this.fireSearch, 500);
+        });
+    } else {
+      window.clearTimeout(this.enqueuedSearchId);
+      this.enqueuedSearchId = window.setTimeout(this.fireSearch, 500);
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -27,7 +43,7 @@ class SearchForm extends React.Component {
   handleInput(e) {
     if (e.currentTarget.value.length > 0) {
       this.setState({query: e.currentTarget.value},
-      this.fireSearch);
+      this.enqueueSearch);
     } else {
       this.setState({query: e.currentTarget.value});
       this.props.clearSearch();
