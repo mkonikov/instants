@@ -1,5 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import FollowButton from '../buttons/follow';
+
 
 class ProfileDetail extends React.Component {
   constructor(props) {
@@ -7,7 +9,6 @@ class ProfileDetail extends React.Component {
 
     this.onDrop = this.onDrop.bind(this);
     this.renderAvatar = this.renderAvatar.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   onDrop(image) {
@@ -16,31 +17,8 @@ class ProfileDetail extends React.Component {
     this.props.updateProfile(formData, this.props.user.id);
   }
 
-  handleButtonClick(type) {
-    return (e) => {
-      const userId = this.props.user.id;
-      e.preventDefault();
-      if (type === 'follow') {
-        this.props.followUser(userId);
-      } else if (type === 'unfollow') {
-        this.props.unfollowUser(userId);
-      }
-    };
-  }
-
-  renderFollowButton() {
-    return (<button className="follow"
-    onClick={this.handleButtonClick('follow')}>Follow</button>);
-  }
-
-  renderUnfollowButton() {
-    return (<button className="unfollow"
-    onClick={this.handleButtonClick('unfollow')}>Following</button>);
-  }
-
   renderEditButton() {
-    return (<button className="edit-profile"
-    onClick={this.handleButtonClick('edit')}>Edit Profile</button>);
+    return (<button className="edit-profile">Edit Profile</button>);
   }
 
   renderFriendNoPosts() {
@@ -86,8 +64,7 @@ class ProfileDetail extends React.Component {
     if (!user || !user.profileFeed || !user.followerUsernames) return null;
     document.title = `${user.name} (@${user.username}) • Instants`;
 
-    let button = (this.props.followStatus) ? this.renderUnfollowButton() : this.renderFollowButton();
-    if (this.props.self) button = this.renderEditButton();
+    const button = (this.props.self) ? this.renderEditButton() : <FollowButton user={user} />;
     const numPosts = user.profileFeed.length;
     const numFollowers = user.followerUsernames.length;
     const numFollowees = user.followeeUsernames.length;
