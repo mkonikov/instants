@@ -297,8 +297,8 @@ user27_options = {
 }
 
 user28_options = {
-  username: 'boyd',
-  name: 'Douglas Boyd',
+  username: 'roland',
+  name: 'Douglas Roland',
   email: 'douglas.boyd90@gmail.com',
   bio: 'Community Volunteer, Curator, Dollar Store Owner, Saviour of Mankind, Vampire Slayer. My life is a green screen.',
   session_token: SecureRandom.urlsafe_base64,
