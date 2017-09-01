@@ -8,7 +8,7 @@ Instants is a full-stack web application inspired by Instagram. Instants utilize
 
 ### User Authentication
 
-![auth](doc/readme_images/auth.jpg)
+![auth](docs/readme_images/auth.jpg)
 
 Users sign up and log in to upload and edit personal information. While profiles are public, protected routes limit navigation and features accessibility. The current user is bootstrapped to the window to ensure the current user (when logged in) appears immediately without the need for an additional API call.
 
@@ -32,7 +32,7 @@ end
 
 ### Share Post
 
-![upload-post](doc/readme_images/upload-post.gif)
+![upload-post](docs/readme_images/upload-post.gif)
 
 Users can share posts via a nifty upload modal that allows users to select a photo with a file picker or via simple drag and drop.
 
@@ -62,7 +62,7 @@ Additionally if there are no posts a message will render either encouraging the 
 
 ### Search
 
-![search](doc/readme_images/search.gif)
+![search](docs/readme_images/search.gif)
 
 A user search field is displayed in the navbar allowing visitors to search for users with a simple query that will match all users that either their username of Full name begins with the query search term. The results will display in a rendered component that appears below the search which disappears onBlur.
 
@@ -88,7 +88,7 @@ Using member routes in the Rails backend, follows, likes and comments CRUD actio
 
 ### Loading Bar
 
-![loading](doc/readme_images/loading.gif)
+![loading](docs/readme_images/loading.gif)
 
 A nice loading bar appears when an API call is being made and toggled off when it's returned. The appearance is styled with CSS keyframes as well as multiple setTimeouts to continuously widen the bar as time progresses. All timeouts are cleared when the React component unmounts.
 
