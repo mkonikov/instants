@@ -8,9 +8,27 @@ Instants is a full-stack web application inspired by Instagram. Instants utilize
 
 ### User Authentication
 
-Users sign up and log in to upload and edit personal information. While profiles are public, protected routes limit navigation and features accessibility. An animated guest login was added for fun!
+Users sign up and log in to upload and edit personal information. While profiles are public, protected routes limit navigation and features accessibility. The current user is bootstrapped to the window to ensure the current user (when logged in) appears immediately without the need for an additional API call.
 
 ### User Feed
+
+The feed populates with posts from users the current user follows.
+
+When a new user joins, the feed is populated with follow suggestions listing the top 10 most followed users with an option to follow each. Once a user has selected their follow preferences they can hit 'Get Started' to fetch their new feed.
+
+```
+if params[:suggestions] == "new_user"
+  @users = User
+  .joins(:follower_followings)
+  .group(:id)
+  .order("COUNT(users.id) DESC")
+  .limit(10)
+
+  return render :search
+end
+```
+
+
 
 ### Profile Feed
 
