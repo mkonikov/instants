@@ -21,6 +21,7 @@ class UploadModal extends React.Component {
 
   componentDidMount() {
     document.documentElement.classList.add('modal-open');
+    document.title = `New Post • Instants`;
   }
 
   closeModal() {
@@ -28,6 +29,7 @@ class UploadModal extends React.Component {
       this.setState({caption: "", imageFile: null,
         imageURL: null, submitting: false,});
       document.documentElement.classList.remove('modal-open');
+      document.title = `Instants`;
       this.props.clearErrors();
       this.props.toggleUpload();
     }
@@ -39,11 +41,13 @@ class UploadModal extends React.Component {
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
     if (this.state.imageFile) formData.append("post[image]", this.state.imageFile);
+    document.title = `Sharing New Post... • Instants`;
     this.props.uploadPost(formData)
       .then(() => {
         this.setState({submitting: false,}, this.closeModal);
         this.props.history.push(`/${this.props.currentUser}`);
       }, () => {
+        document.title = `New Post • Instants`;
         this.setState({submitting: false,});
       });
   }

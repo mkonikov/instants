@@ -77,9 +77,14 @@ class ProfileDetail extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    document.title = "Instants"
+  }
+
   render() {
     const user = this.props.user;
     if (!user || !user.profileFeed || !user.followerUsernames) return null;
+    document.title = `${user.name} (@${user.username}) • Instants`;
 
     let button = (this.props.followStatus) ? this.renderUnfollowButton() : this.renderFollowButton();
     if (this.props.self) button = this.renderEditButton();
