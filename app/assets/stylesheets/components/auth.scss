@@ -14,30 +14,6 @@
     justify-content: center;
   }
 
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 12px;
-    height: 7vh;
-
-    a {
-      font-weight: 700;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $dark-gray;
-      margin-right: 20px;
-    }
-
-    small {
-      color: $gray;
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-
-  }
-
 }
 
 .auth-container {
@@ -244,9 +220,6 @@
         }
 
       }
-    }
-    footer {
-      justify-content: space-between;
     }
   }
 }

@@ -48,6 +48,7 @@ class EditProfile extends React.Component {
 
   render() {
     return (
+      <div id="main-contain">
       <div id="edit-profile" className="insta-container">
         <div id="edit-options">
           <h4>Edit Profile</h4>
@@ -106,7 +107,7 @@ class EditProfile extends React.Component {
                   </form>
         </div>
       </div>
-
+</div>
     )
   }
 

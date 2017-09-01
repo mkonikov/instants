@@ -1,0 +1,32 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  height: 7vh;
+  max-width: 950px;
+  margin: auto;
+
+  a {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $dark-gray;
+    margin-right: 20px;
+  }
+
+  small {
+    color: $gray;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+}
+
+@media only screen and (min-width: 855px) {
+  footer {
+    justify-content: space-between;
+  }
+
+}
