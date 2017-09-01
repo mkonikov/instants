@@ -28,11 +28,57 @@ if params[:suggestions] == "new_user"
 end
 ```
 
+### Share Post
 
+Users can share posts via a nifty upload modal that allows users to select a photo with a file picker or via simple drag and drop.
 
 ### Profile Feed
 
+Visiting a profile page fetches all of the users posts and comments and utilizes includes on all the associations to avoid N+1 queries when the JSON response is being built out by the Jbuilder view.
+
+```
+if params[:username]
+  @user = User
+    .includes(:followees, :followers, :posts, posts: [:author, :likes, comments: [:author]])
+    .find_by(username: params[:username])
+
+  @posts = @user.posts
+  @followers = @user.followers
+  @followees = @user.followees
+
+  render :profile
+end
+```
+
+For elegance, the profile page route uses the user's username as opposed to a primary key ID integer and accordingly all searches for user on backend are done via the user's username.
+
+The profile higher order container in React.js checks the route params (via React Router) to find the user as well as check if the profile is A) the current user, and therefore render an 'Edit Profile' button, B) a user that is followed by the current user with an option to unfollow or C) a follow button if current user does not follow.
+
+Additionally if there are no posts a message will render either encouraging the user to create a post if it is the current user's profile or a simple 'No posts' message.
+
+### Search
+
+A user search field is displayed in the navbar allowing visitors to search for users with a simple query that will match all users that either their username of Full name begins with the query search term. The results will display in a rendered component that appears below the search which disappears onBlur.
+
+The search utilizes a setTimeout so that at most a search is fired every 500ms. The search component maintains state to determine if any search queries are currently enqueued.
+
+```
+enqueueSearch() {
+  if (!this.state.enqueued) {
+    this.setState({enqueued: true},
+      () => {
+        this.enqueuedSearchId = window.setTimeout(this.fireSearch, 500);
+      });
+  } else {
+    window.clearTimeout(this.enqueuedSearchId);
+    this.enqueuedSearchId = window.setTimeout(this.fireSearch, 500);
+  }
+}
+```
+
 ### Post Detail with Likes and Comments
+
+Using member routes in the Rails backend, follows, likes and comments CRUD actions are directed to the Posts and Users controllers respectively.
 
 ## Future Directions for the Project
 
