@@ -31,8 +31,10 @@ class PostsIndex extends React.Component {
 
     if (this.state.newUser) {
       return (
-        <div id="feed">
-          <NewUserFeed />
+        <div id="main-contain">
+          <div id="feed">
+            <NewUserFeed />
+          </div>
         </div>
       )
     }
@@ -43,9 +45,11 @@ class PostsIndex extends React.Component {
         post={post} />);
     });
     return(
-      <ul id="feed">
-        {posts}
-      </ul>
+      <div id="main-contain">
+        <ul id="feed">
+          {posts}
+        </ul>
+      </div>
     );
   }
 }

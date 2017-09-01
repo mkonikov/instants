@@ -18,16 +18,6 @@ const AuthInterstitial = () => (
       <Route path="/login" component={LoginContainer} />
       <Route path="/signup" component={SignupContainer} />
     </div>
-    <footer>
-      <div id="links">
-        <a href="http://github.com/mkonikov">GitHub</a>
-        <a href="#">Portfolio</a>
-        <a href="https://www.linkedin.com/in/mkonikov/">LinkedIn</a>
-      </div>
-      <small>
-        &copy; Mendel Konikov
-      </small>
-    </footer>
   </div>
 </div>
 

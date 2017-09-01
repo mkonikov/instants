@@ -23,12 +23,14 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div id="profile">
-        <Route path="/:username/posts/:postId"
-          component={ProfilePostItemDetailContainer} />
+      <div id="main-contain">
+        <div id="profile">
+          <Route path="/:username/posts/:postId"
+            component={ProfilePostItemDetailContainer} />
 
-        <ProfileDetailContainer />
-        <ProfilePosts posts={this.props.feed} />
+          <ProfileDetailContainer />
+          <ProfilePosts posts={this.props.feed} />
+        </div>
       </div>
     );
 
