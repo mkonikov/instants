@@ -19,9 +19,14 @@ class PostsIndex extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.feed.length > 1) {
+      this.setState({newUser: false});
+    }
+  }
+
 
   render() {
-
     if (!this.props.feed) return null;
 
     if (this.state.newUser) {

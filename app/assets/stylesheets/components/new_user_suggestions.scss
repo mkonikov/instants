@@ -11,6 +11,27 @@
 
 #new-user-suggestions {
 
+  .user-details {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  button {
+    font-weight: bold;
+    color: white;
+    background: $blue;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 6px 10px;
+
+    &.unfollow {
+      color: $light-black;
+      background: white;
+      border: 1px solid #dbdbdb;
+    }
+  }
+
   li {
     border-bottom: 1px solid $light-gray;
     padding: 10px 20px;
@@ -33,4 +54,15 @@
   a {
     text-decoration: none;
   }
+}
+
+button.get-started {
+  padding: 8px 20px;
+  background: #3897f0;
+  font-weight: 600;
+  border-radius: 3px;
+  color: white;
+  display: block;
+  margin: 15px auto;
+  cursor: pointer;
 }

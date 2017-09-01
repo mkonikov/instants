@@ -2,11 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectUsers } from '../../reducers/selectors';
+import FollowButton from '../buttons/follow';
+import { fetchFeed } from '../../actions/post_actions';
 import { fetchNewUserSuggestions,
   clearUserSuggestions } from '../../actions/search_actions';
 
 
 class NewUserFollowSuggestions extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.getStarted = this.getStarted.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchNewUserSuggestions();
@@ -20,6 +28,7 @@ class NewUserFollowSuggestions extends React.Component {
     const suggestions = this.props.userResults.map((user) => {
       return (
         <li key={user.id}>
+          <div className="user-details">
           <div className="avatar">
             <Link to={`/${user.username}`}>
               <img src={user.avatarUrl} />
@@ -35,12 +44,19 @@ class NewUserFollowSuggestions extends React.Component {
               {user.name}
             </p>
           </div>
+          </div>
+          <FollowButton user={user} />
         </li>
       );
     });
     return(
       <div>{suggestions}</div>
     );
+  }
+
+  getStarted() {
+    this.props.fetchFeed();
+    window.scrollTo(0,0);
   }
 
   render() {
@@ -53,6 +69,8 @@ class NewUserFollowSuggestions extends React.Component {
         <ul id="new-user-suggestions">
           {this.renderSuggestions()}
         </ul>
+        <button type="button" className="get-started"
+          onClick={this.getStarted}>Get Started</button>
       </div>
     )
   }
@@ -73,6 +91,7 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     fetchNewUserSuggestions: () => dispatch(fetchNewUserSuggestions()),
     clearUserSuggestions: () => dispatch(clearUserSuggestions()),
+    fetchFeed: () => dispatch(fetchFeed()),
   });
 }
 

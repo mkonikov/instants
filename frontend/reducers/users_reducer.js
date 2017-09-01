@@ -15,6 +15,7 @@ const usersReducer = (state = {}, action) => {
   let currentUser;
   let updatedUser;
   let followee;
+  let follower;
   let existingUser;
 
   Object.freeze(state);
@@ -32,6 +33,7 @@ const usersReducer = (state = {}, action) => {
       newState = merge({}, state);
       action.users.forEach((user) => {
         existingUser = newState[user.username] || {};
+        existingUser.followerUsernames = existingUser.followerUsernames || [];
         updatedUser = merge({}, existingUser, user);
         newState[user.username] = updatedUser;
       });
@@ -48,8 +50,13 @@ const usersReducer = (state = {}, action) => {
 
     case RECEIVE_NEW_FOLLOW:
       followee = state[action.following.followee];
+      follower = state[action.following.follower];
+      followee.followerUsernames = followee.followerUsernames || [];
+      follower.followeeUsernames = follower.followeeUsernames || [];
       followee.followerUsernames.push(action.following.follower);
-      newState = merge({}, state, {[followee.username]: followee});
+      follower.followeeUsernames.push(action.following.followee);
+      newState = merge({}, state, {[followee.username]: followee,
+        [follower.username]: follower});
       return newState;
 
     case REMOVE_FOLLOW:
