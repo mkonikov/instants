@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import { withRouter } from 'react-router-dom';
 import CommentsIndexContainer from '../feed/comments_index_container';
 import CommentForm from '../feed/comment_form';
+import LikeButton from '../buttons/like';
 
 class ProfilePostItemDetail extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class ProfilePostItemDetail extends React.Component {
 
     this.state = { submittingLike: false, };
 
-    this.likeButtonCallback = this.likeButtonCallback.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.delete = this.delete.bind(this);
   }
@@ -52,32 +52,6 @@ class ProfilePostItemDetail extends React.Component {
 
   }
 
-  likeButtonCallback() {
-    if (this.state.submittingLike) {
-      return null;
-    } else if (this.props.post.hasLiked) {
-      return (
-          this.setState({submittingLike: true},
-          () => this.props.unlikePost()
-            .then(this.setState({submittingLike: false,})))
-        );
-    } else {
-        return (
-          this.setState({submittingLike: true},
-          () => this.props.likePost()
-            .then(this.setState({submittingLike: false,})))
-          );
-    }
-  }
-
-  renderLikeButton() {
-    const likeClassName = (this.props.post.hasLiked) ? "fa fa-heart liked" : "fa fa-heart-o unliked";
-    return(
-      <i className={likeClassName} aria-hidden="true"
-        onClick={this.likeButtonCallback}></i>
-    );
-  }
-
   renderDelete() {
     if (this.props.self) {
       return (<button type="button" onClick={this.delete}>
@@ -94,7 +68,6 @@ class ProfilePostItemDetail extends React.Component {
     const date = this.renderDate();
 
     const likes = (post.likeCount === 1) ? '1 like' : `${post.likeCount} likes`;
-    const likeButton = this.renderLikeButton();
     const commentButton = (
       <label htmlFor={`comment-field-${post.id}`}>
         <i className="fa fa-comment-o"
@@ -135,7 +108,7 @@ class ProfilePostItemDetail extends React.Component {
             <div className="like-comments">
               <div className="icons">
                 <div>
-                  {likeButton}
+                  <LikeButton postId={post.id} />
                   {commentButton}
                 </div>
                 {this.renderDelete()}

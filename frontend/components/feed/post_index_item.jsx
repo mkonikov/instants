@@ -2,50 +2,19 @@ import React from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import CommentsIndexContainer from './comments_index_container';
-import CommentForm from '../feed/comment_form';
-
-
-
+import CommentForm from './comment_form';
+import LikeButton from '../buttons/like';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { submittingLike: false, };
-    this.likeButtonCallback = this.likeButtonCallback.bind(this);
-
-  }
-
-  likeButtonCallback() {
-    if (this.state.submittingLike) {
-      return null;
-    } else if (this.props.post.hasLiked) {
-        return (
-          this.setState({submittingLike: true},
-          () => this.props.unlikePost()
-            .then(this.setState({submittingLike: false,})))
-        );
-    } else {
-        return (
-          this.setState({submittingLike: true},
-          () => this.props.likePost()
-            .then(this.setState({submittingLike: false,})))
-          );
-    }
-  }
-
-  renderLikeButton() {
-    const likeClassName = (this.props.post.hasLiked) ? "fa fa-heart liked" : "fa fa-heart-o unliked";
-    return(
-      <i className={likeClassName} aria-hidden="true"
-        onClick={this.likeButtonCallback}></i>
-    );
   }
 
   render() {
 
     const post = this.props.post;
-    const likeButton = this.renderLikeButton();
     const commentButton = (
       <label htmlFor={`comment-field-${this.props.post.id}`}>
         <i className="fa fa-comment-o"
@@ -73,7 +42,7 @@ class PostIndexItem extends React.Component {
 
           <div className="feed-icons icons">
             <div>
-              {likeButton}
+              <LikeButton postId={post.id} />
               {commentButton}
             </div>
           </div>

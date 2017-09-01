@@ -34,8 +34,6 @@ class PostsIndex extends React.Component {
 
     const posts = this.props.feed.map((post) => {
       return (<PostIndexItem
-        likePost={this.props.likePost(post.id)}
-        unlikePost={this.props.unlikePost(post.id)}
         key={post.id}
         post={post} />);
     });
