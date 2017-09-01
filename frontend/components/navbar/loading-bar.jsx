@@ -10,27 +10,27 @@ class LoadingBar extends React.Component {
 
   componentDidMount() {
     this.timeouts = [
-      setTimeout(() => this.setState({width: 12}), 10),
-      setTimeout(() => this.setState({width: 18}), 25),
-      setTimeout(() => this.setState({width: 20}), 50),
-      setTimeout(() => this.setState({width: 25}), 100),
+      setTimeout(() => this.setState({width: 12}), 100),
+      setTimeout(() => this.setState({width: 18}), 150),
+      setTimeout(() => this.setState({width: 20}), 300),
+      setTimeout(() => this.setState({width: 25}), 500),
       setTimeout(() => this.setState({width: 30}), 150),
       setTimeout(() => this.setState({width: 35}), 200),
       setTimeout(() => this.setState({width: 40}), 250),
       setTimeout(() => this.setState({width: 45}), 300),
       setTimeout(() => this.setState({width: 50}), 350),
       setTimeout(() => this.setState({width: 60}), 400),
-      setTimeout(() => this.setState({width: 65}), 450),
-      setTimeout(() => this.setState({width: 70}), 2000),
-      setTimeout(() => this.setState({width: 75}), 3000),
-      setTimeout(() => this.setState({width: 80}), 4000),
-      setTimeout(() => this.setState({width: 83}), 5000),
-      setTimeout(() => this.setState({width: 86}), 6000),
-      setTimeout(() => this.setState({width: 89}), 7000),
-      setTimeout(() => this.setState({width: 92}), 8000),
-      setTimeout(() => this.setState({width: 94}), 9000),
-      setTimeout(() => this.setState({width: 96}), 9500),
-      setTimeout(() => this.setState({width: 98}), 10000)
+      setTimeout(() => this.setState({width: 65}), 415),
+      setTimeout(() => this.setState({width: 70}), 430),
+      setTimeout(() => this.setState({width: 75}), 460),
+      setTimeout(() => this.setState({width: 80}), 480),
+      setTimeout(() => this.setState({width: 83}), 500),
+      setTimeout(() => this.setState({width: 86}), 550),
+      setTimeout(() => this.setState({width: 89}), 600),
+      setTimeout(() => this.setState({width: 92}), 700),
+      setTimeout(() => this.setState({width: 94}), 800),
+      setTimeout(() => this.setState({width: 96}), 900),
+      setTimeout(() => this.setState({width: 100}), 1000)
     ];
   }
 
@@ -43,6 +43,7 @@ class LoadingBar extends React.Component {
 
     let loadingWidth  = {
       width: `${this.state.width}%`,
+      transition: "width 0.2s ease",
     };
 
     if (this.props.loading) {
