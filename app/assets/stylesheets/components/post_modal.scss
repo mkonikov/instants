@@ -93,11 +93,14 @@
   }
 
 }
-
+#profile {
+  .like-comments {
+    margin-right: 25px;
+  }
+}
 .like-comments {
   border-top: 1px solid $light-gray;
   padding-top: 10px;
-  margin-right: 25px;
 
   .icons {
     margin-bottom: 10px;

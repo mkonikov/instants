@@ -1,3 +1,33 @@
+#friend-no-posts {
+  padding: 200px 60px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+#self-no-posts {
+  display: flex;
+  margin-bottom: 60px;
+  align-items: center;
+  text-align: center;
+
+  .message {
+    width: 100%;
+    text-align: center;
+
+    & h4 {
+      font-weight: 600;
+      color: $light-black;
+      font-size: 18px;
+    }
+  }
+
+  img {
+    width: 380px;
+    display: block;
+  }
+}
+
 #profile {
   #details {
     display: flex;

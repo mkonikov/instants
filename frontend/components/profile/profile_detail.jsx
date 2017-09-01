@@ -23,22 +23,6 @@ class ProfileDetail extends React.Component {
     return (<Link to='/accounts/edit' className="edit-profile">Edit Profile</Link>);
   }
 
-  renderFriendNoPosts() {
-    return (
-      <div>
-        No posts yet.
-      </div>
-    );
-  }
-
-  renderSelfNoPosts() {
-    return (
-      <div>
-        Start capturing and sharing your instants.
-      </div>
-    );
-  }
-
   renderAvatar() {
     if (this.props.self) {
       return (<div className="avatar">

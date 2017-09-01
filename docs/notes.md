@@ -18,5 +18,6 @@ Search, debounce with timeout
 Document title Changes
 Loading bar with settimeouts
 user suggestions for new user with top 10 most followed users
+profile page also encourages you to share
 change user info and profile avatar
 relative dates on posts
