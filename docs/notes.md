@@ -1,5 +1,4 @@
 * disable all buttons during submission
-* go to next photo in detail view (with keyboard and/or mouse)
 * support video
 * error handling
 * ensure enter works on forms to submit

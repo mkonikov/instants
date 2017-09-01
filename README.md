@@ -1,24 +1,33 @@
-# README
+# Instants
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Instant live](http://instants.cam)
 
-Things you may want to cover:
+Instants is a full-stack web application inspired by Instagram. Instants utilizes Ruby on Rails on the backend with a PostgreSQL database, and React.js with Redux architectural framework on the frontend.
 
-* Ruby version
+## Features & Implementation
 
-* System dependencies
+### User Authentication
 
-* Configuration
+Users sign up and log in to upload and edit personal information. While profiles are public, protected routes limit navigation and features accessibility. An animated guest login was added for fun!
 
-* Database creation
+### User Feed
 
-* Database initialization
+### Profile Feed
 
-* How to run the test suite
+### Post Detail with Likes and Comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## Future Directions for the Project
 
-* Deployment instructions
+In addition to the features outlined above some of the next steps to continue working on this project are:
 
-* ...
+### Infinite scroll
+
+Feed will only fetch the latest 30 posts and continue fetching additional posts by requesting from the API additional posts and specifying the offset.
+
+### Direct Messaging
+
+Leveraging Rails 5's support for Web Sockets with Action Cable, users will be able to send direct messages with images that will update live.
+
+### Support for Video
+
+Allow upload of videos and have them play on hover while counting views.
