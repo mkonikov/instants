@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require("webpack");
+var webpack = require("webpack");
 
 var plugins = [];
 var devPlugins = [];
