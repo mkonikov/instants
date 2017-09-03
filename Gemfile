@@ -11,7 +11,6 @@ gem 'rails', '~> 5.0.5'
 gem "paperclip", "~> 5.0.0"
 gem 'font-awesome-sass'
 gem "figaro"
-gem "faker"
 gem 'aws-sdk', '~> 2'
 
 # Use postgresql as the database for Active Record
@@ -40,6 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem "faker"
   gem 'byebug', platform: :mri
   gem 'better_errors'
   gem 'binding_of_caller'

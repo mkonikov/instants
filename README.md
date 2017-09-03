@@ -1,6 +1,6 @@
 # Instants
 
-[Instant live](http://instants.cam)
+[Instants live](http://instants.cam)
 
 Instants is a full-stack web application inspired by Instagram. Instants utilizes Ruby on Rails on the backend with a PostgreSQL database, and React.js with Redux architectural framework on the frontend.
 
