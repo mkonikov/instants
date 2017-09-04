@@ -21,6 +21,7 @@ plugins = plugins.concat(
 
 module.exports = {
   context: __dirname,
+  plugins: plugins,
   entry: './frontend/instants.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
