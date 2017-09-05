@@ -5,17 +5,19 @@ class Api::PostsController < ApplicationController
       .includes(:author, :likes, comments: [:author])
       .where(author: current_user.followees.to_a.concat([current_user]))
       .order("posts.created_at DESC")
-
   end
 
   def destroy
     @post = Post.find(params[:id])
 
-    if @post.destroy
-      render :show
-    else
-      render json: @post.errors.full_messages, status: 400
+    if @post.author == current_user
+      if @post.destroy
+        render :show
+      else
+        render json: @post.errors.full_messages, status: 400
+      end
     end
+
 
   end
 

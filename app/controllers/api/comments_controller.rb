@@ -1,5 +1,7 @@
 class Api::CommentsController < ApplicationController
 
+
+
   def create
     @comment = Comment.new(comment_params)
     @comment.post_id = params[:post_id]
@@ -14,10 +16,12 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.includes(:author).find(params[:id])
-    if @comment.destroy
-      render :show
-    else
-      render json: @comment.errors.full_messages, status: 422
+    if @comment.author == current_user || @comment.post.author == current_user
+      if @comment.destroy
+        render :show
+      else
+        render json: @comment.errors.full_messages, status: 422
+      end
     end
 
   end

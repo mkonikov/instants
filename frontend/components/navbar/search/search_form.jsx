@@ -41,6 +41,7 @@ class SearchForm extends React.Component {
   }
 
   handleInput(e) {
+    e.preventDefault();
     if (e.currentTarget.value.length > 0) {
       this.setState({query: e.currentTarget.value},
       this.enqueueSearch);

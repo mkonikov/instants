@@ -14,8 +14,8 @@ import { ProtectedRoute, AuthRoute } from '../util/route_util';
 const App = (props) => (
     <div>
       <ProtectedRoute path="/" component={Navbar} />
-      <AuthRoute path="/login" component={AuthInterstitial} />
       <AuthRoute path="/signup" component={AuthInterstitial} />
+      <AuthRoute path="/login" component={AuthInterstitial} />
 
       <Switch>
           <ProtectedRoute path="/accounts/edit" component={EditProfile} />

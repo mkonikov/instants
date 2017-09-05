@@ -63,6 +63,8 @@ class EditProfile extends React.Component {
   }
 
   render() {
+
+    const disableGuestEdit = (this.props.user.username === 'guest') ? true : false;
     return (
       <div id="main-contain">
       <div id="edit-profile" className="insta-container">
@@ -89,7 +91,8 @@ class EditProfile extends React.Component {
               <label htmlFor="username">Username</label>
                 <div className="input-container">
 
-              <input id="username" onChange={this.handleInput("username")}
+              <input id="username" disabled={disableGuestEdit}
+                onChange={this.handleInput("username")}
                 value={this.state.username} />
             </div>
             </div>
