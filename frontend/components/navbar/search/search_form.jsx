@@ -57,7 +57,7 @@ class SearchForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={(e) => e.preventDefault}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input onBlur={this.handleBlur} onChange={this.handleInput}
           placeholder="Search" value={this.state.query} />
       </form>
