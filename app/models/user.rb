@@ -67,6 +67,14 @@ class User < ApplicationRecord
     dependent: :destroy,
     foreign_key: :author_id
 
+  def self.new_user_suggestions
+    User
+      .joins(:follower_followings)
+      .group(:id)
+      .order("COUNT(users.id) DESC")
+      .limit(10)
+  end
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil if user.nil?

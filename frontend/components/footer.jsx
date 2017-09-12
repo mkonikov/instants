@@ -10,7 +10,7 @@ class Footer extends React.Component {
       <footer>
         <div id="links">
           <a href="http://github.com/mkonikov">GitHub</a>
-          <a href="#">Portfolio</a>
+          <a href="http://mkonikov.com">Portfolio</a>
           <a href="https://www.linkedin.com/in/mkonikov/">LinkedIn</a>
         </div>
         <small>

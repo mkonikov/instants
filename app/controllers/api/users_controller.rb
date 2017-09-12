@@ -66,11 +66,7 @@ class Api::UsersController < ApplicationController
 
   def search
     if params[:suggestions] == "new_user"
-      @users = User
-      .joins(:follower_followings)
-      .group(:id)
-      .order("COUNT(users.id) DESC")
-      .limit(10)
+      @users = User.new_user_suggestions
 
       return render :search
     end
