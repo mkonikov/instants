@@ -19,7 +19,7 @@ The feed populates with posts from users the current user follows.
 
 When a new user joins, the feed is populated with follow suggestions listing the top 10 most followed users with an option to follow each. Once a user has selected their follow preferences they can hit 'Get Started' to fetch their new feed.
 
-```
+```ruby
 if params[:suggestions] == "new_user"
   @users = User
   .joins(:follower_followings)
@@ -43,7 +43,7 @@ Users can share posts via a nifty upload modal that allows users to select a pho
 
 Visiting a profile page fetches all of the users posts and comments and utilizes includes on all the associations to avoid N+1 queries when the JSON response is being built out by the Jbuilder view.
 
-```
+```ruby
 if params[:username]
   @user = User
     .includes(:followees, :followers, :posts, posts: [:author, :likes, comments: [:author]])
@@ -72,7 +72,7 @@ A user search field is displayed in the navbar allowing visitors to search for u
 
 The search utilizes a setTimeout so that at most a search is fired every 500ms. The search component maintains state to determine if any search queries are currently enqueued.
 
-```
+```javascript
 enqueueSearch() {
   if (!this.state.enqueued) {
     this.setState({enqueued: true},
