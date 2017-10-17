@@ -1,4 +1,4 @@
-# Instants
+# Instants [![Build Status](https://travis-ci.org/mkonikov/instants.svg?branch=master)](https://travis-ci.org/mkonikov/instants)
 
 [Instants live](http://instants.cam)
 
