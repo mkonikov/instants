@@ -1,7 +1,7 @@
 {
   "name": "Instants",
   "version": "1.0.0",
-  "description": "",
+  "description": "Instants is a full-stack web application built with Ruby on Rails, and React/Redux. Inspired by Instagram.",
   "main": "index.js",
   "directories": {
     "doc": "docs",
