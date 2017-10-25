@@ -11,7 +11,7 @@ RSpec.describe Api::PostsController, :type => :controller do
 
     context "with invalid params" do
       it "validates the presence of image" do
-        post :create, post: {caption: "this is an invalid post"}
+        post :create, params: { post: {caption: "this is an invalid post"} }
         expect(response).to have_http_status(422)
       end
     end
