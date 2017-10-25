@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::PostsController, :type => :controller do
+RSpec.describe Api::PostsController, type: :controller do
   let(:john_doe) { User.create!(email: 'john@test.com', name: 'John Doe', username: 'john_doe', password: 'abcdefgh') }
 
   describe "POST #create" do
@@ -13,6 +13,7 @@ RSpec.describe Api::PostsController, :type => :controller do
       it "validates the presence of image" do
         post :create, params: { post: {caption: "this is an invalid post"} }
         expect(response).to have_http_status(422)
+        expect(response.content_type).to eq("application/json")
       end
     end
 
