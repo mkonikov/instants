@@ -10,6 +10,7 @@ RSpec.describe Api::UsersController, type: :controller do
         expect(response).to have_http_status(422)
       end
     end
+    
     context "with valid params" do
 
       it "responds with users information" do

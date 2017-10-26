@@ -17,5 +17,19 @@ RSpec.describe Api::PostsController, type: :controller do
       end
     end
 
+    context "with valid params" do
+
+      before :each do
+        @file = fixture_file_upload('files/sample-post.jpg', 'image/jpeg')
+      end
+
+      it "responds with users information" do
+        file = Hash.new
+        file['image'] = @file
+        post :create, upload: file, format: :json, params: { post: {image: @file, caption: "this is a valid post"} }
+        expect(response).to have_http_status(200)
+      end
+    end
+
   end
 end
