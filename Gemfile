@@ -40,6 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'byebug', platform: :mri
