@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::UsersController, type: :controller do
 
   let(:john) { User.create!(username: "john_doe", name: "John Doe", password: "password!", email: "john@test.com") }
+  let(:sarah) { User.create!(username: "sarah", name: "Sarah", password: "password!", email: "sarah@test.com") }
 
   describe "POST #create" do
     context "with invalid params" do
@@ -29,7 +30,15 @@ RSpec.describe Api::UsersController, type: :controller do
         allow(controller).to receive(:current_user) { john }
     end
 
-    context "with valid params" do
+    context "when logged in as different user" do
+      it "should not allow user to update a different user's info" do
+        patch :update, format: :json, params: { id: sarah, user: { username: "sarah_two", name: "Sarah Two"} }
+        expect(response).to have_http_status(422)
+      end
+
+    end
+
+    context "when logged in as current user" do
       it "responds with users updated information" do
         patch :update, format: :json, params: { id: john, user: { username: "jane_doe", name: "Jane Doe"} }
         expect(response).to render_template("users/show")
