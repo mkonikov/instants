@@ -26,7 +26,7 @@ RSpec.describe Api::PostsController, type: :controller do
       it "responds with users information" do
         file = Hash.new
         file['image'] = @file
-        post :create, upload: file, format: :json, params: { post: {image: @file, caption: "this is a valid post"} }
+        post :create, format: :json, params: { post: {image: @file, caption: "this is a valid post"} }
         expect(response).to have_http_status(200)
       end
     end
