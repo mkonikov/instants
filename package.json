@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Instants is a full-stack web application built with Ruby on Rails, and React/Redux. Inspired by Instagram.",
   "main": "index.js",
+  "author": {
+    "name": "Mendel Konikov",
+    "email": "mkonikov@gmail.com"
+  },
   "directories": {
     "doc": "docs",
     "test": "test"
