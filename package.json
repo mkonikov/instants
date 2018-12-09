@@ -1,6 +1,6 @@
 {
   "name": "Instants",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Instants is a full-stack web application built with Ruby on Rails, and React/Redux. Inspired by Instagram.",
   "main": "index.js",
   "author": {
@@ -25,7 +25,6 @@
     "url": "git+https://github.com/mkonikov/instants.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mkonikov/instants/issues"
