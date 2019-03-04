@@ -1,6 +1,6 @@
 # Instants [![Build Status](https://travis-ci.org/mkonikov/instants.svg?branch=master)](https://travis-ci.org/mkonikov/instants)
 
-[Instants live](http://instants.cam)
+[Instants live](https://instants.herokuapp.com)
 
 Instants is a full-stack web application inspired by Instagram. Instants utilizes Ruby on Rails on the backend with a PostgreSQL database, and React.js with Redux architectural framework on the frontend.
 
