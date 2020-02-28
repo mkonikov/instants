@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem "paperclip", "~> 5.2.0"
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.12.2'
+gem 'puma', '~> 3.12.3'
 gem 'rails', '~> 5.2.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
