@@ -5,9 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "~> 2.6.3"
+ruby "~> 2.7.1"
 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 2.11.241'
 gem 'bcrypt', '~> 3.1.7'
 gem 'coffee-rails', '~> 4.2'
 gem "figaro"
