@@ -31,7 +31,7 @@
   "homepage": "https://github.com/mkonikov/instants#readme",
   "dependencies": {
     "lodash": "^4.17.19",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "moment-timezone": "^0.5.27",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
